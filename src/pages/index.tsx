@@ -1,12 +1,11 @@
 import Select from "@/components/Select";
 import Input from "@/components/Input";
-import { useContext } from "react";
-import AppContext from "@/contexts/AppContext";
+import { useData } from "@/hooks/useData";
 
 export default function Home() {
-  const { firstTable } = useContext(AppContext);
+  const { data, setData } = useData();
 
-  console.log(firstTable);
+  console.log(data);
 
   return (
     <main className="container">
