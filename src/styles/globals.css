@@ -1,1 +1,18 @@
 @import url(./reset.css);
+
+* {
+  box-sizing: border-box;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 60px 20px;
+}
+
+.container form {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  width: 50%;
+}

@@ -1,11 +1,11 @@
 import styled from "styled-components";
 
-export const StyledSelect = styled.div`
+export const StyledInput = styled.div`
   label {
     font-weight: 500;
     font-size: 24px;
   }
-  select {
+  input {
     margin-top: 15px;
     height: 50px;
     width: 100%;
