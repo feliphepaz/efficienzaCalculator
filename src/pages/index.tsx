@@ -1,11 +1,10 @@
 import Select from "@/components/Select";
 import Input from "@/components/Input";
 import { useData } from "@/hooks/useData";
+import { useEffect } from "react";
 
 export default function Home() {
   const { data, setData } = useData();
-
-  console.log(data);
 
   return (
     <main className="container">
@@ -17,7 +16,7 @@ export default function Home() {
         />
         <Input
           field="commision-tax"
-          label="Qual será a taxa de comissão? (em %)"
+          label="Qual será a taxa de comissões? (em %)"
           type="number"
         />
         <Input
