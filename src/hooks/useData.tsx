@@ -1,79 +1,63 @@
 import { useEffect, useState } from "react";
+import { PaymentsProps, SalaryProps, TotalsProps } from "@/types/useData";
 
 export const useData = () => {
-  const [data, setData] = useState({});
-
   // Payments
-  const [payments, setPayments] = useState([]);
+  const [payments, setPayments] = useState<PaymentsProps[]>([]);
   const [monthsOfPayment, setMonthsOfPayment] = useState(0);
   const [comissionRates, setComissionRates] = useState<number[]>([]);
-  const [taxes, setTaxes] = useState(0);
   const [taxRate, setTaxRate] = useState(0);
-  const [paymentWithTax, setPaymentWithTax] = useState(0);
   const [nonPayments, setNonPayments] = useState<number[]>([]);
-  const [lost, setLost] = useState(0);
-  const [liquid, setLiquid] = useState(0);
 
   // Salary
-  const [salary, setSalary] = useState([]);
+  const [salary, setSalary] = useState<SalaryProps | null>(null);
   const [numberOfSupervisors, setNumberOfSupervisors] = useState(0);
   const [supervisorSalary, setSupervisorSalary] = useState(0);
   const [supervisorComission, setSupervisorComission] = useState(0);
-  const [supervisorLiquidSalary, setSupervisorLiquidSalary] = useState(0);
-  const [supervisorLiquidComission, setSupervisorLiquidComission] = useState(0);
   const [numberOfSellers, setNumberOfSellers] = useState(0);
   const [sellerSalary, setSellerSalary] = useState(0);
   const [sellerComission, setSellerComission] = useState(0);
-  const [sellerLiquidSalary, setSellerLiquidSalary] = useState(0);
-  const [sellerLiquidComission, setSellerLiquidComission] = useState(0);
   const [sales, setSales] = useState(0);
   const [average, setAverage] = useState(0);
-  const [invoicing, setInvoicing] = useState(0);
   const [numberOfDays, setNumberOfDays] = useState(0);
   const [VTValue, setVTValue] = useState(0);
-  const [totalVT, setTotalVT] = useState(0);
   const [VRValue, setVRValue] = useState(0);
-  const [totalVR, setTotalVR] = useState(0);
   const [charges, setCharges] = useState(0);
 
   // Totals
-  const [totals, setTotals] = useState(0);
-  const [supervisorTotalSalary, setSupervisorTotalSalary] = useState(0);
-  const [sellerTotalSalary, setSellerTotalSalary] = useState(0);
-  const [supAndSelTotalSalary, setSupAndSelTotalSalary] = useState(0);
-  const [laborBenefits, setLaborBenefits] = useState(0);
-  const [salaryAndCharges, setSalaryAndCharges] = useState(0);
-  const [totalVTAndVR, setTotalVTAndVR] = useState(0);
+  const [totals, setTotals] = useState<TotalsProps | null>(null);
   const [media, setMedia] = useState(0);
   const [accountant, setAccountant] = useState(0);
   const [telephone, setTelephone] = useState(0);
-  const [total, setTotal] = useState(0);
 
   useEffect(() => {
     // Payments
-    const payments: any = Array.from({ length: 4 }, (item, index) => ({
-      monthsOfPayment,
-      comissionRate: comissionRates[index],
-      taxes: (sales * average * comissionRates[index]) / 100,
-      taxRate,
-      paymentWithTax:
-        (((sales * average * comissionRates[index]) / 100) * taxRate) / 100,
-      nonPayment: nonPayments[index],
-      lost:
-        (((sales * average * comissionRates[index]) / 100) *
-          nonPayments[index]) /
-        100,
-      liquid:
-        (sales * average * comissionRates[index]) / 100 -
-        (((sales * average * comissionRates[index]) / 100) * taxRate) / 100 -
-        (((sales * average * comissionRates[index]) / 100) *
-          nonPayments[index]) /
+    const payments: PaymentsProps[] = Array.from(
+      { length: monthsOfPayment },
+      (item, index) => ({
+        monthsOfPayment,
+        comissionRate: comissionRates[index],
+        taxes: (sales * average * comissionRates[index]) / 100,
+        taxRate,
+        paymentWithTax:
+          (((sales * average * comissionRates[index]) / 100) * taxRate) / 100,
+        nonPayment: nonPayments[index],
+        lost:
+          (((sales * average * comissionRates[index]) / 100) *
+            nonPayments[index]) /
           100,
-    }));
+        liquid:
+          (sales * average * comissionRates[index]) / 100 -
+          (((sales * average * comissionRates[index]) / 100) * taxRate) / 100 -
+          (((sales * average * comissionRates[index]) / 100) *
+            nonPayments[index]) /
+            100,
+      })
+    );
     setPayments(payments);
 
     // Salary
-    const salary: any = {
+    const salary: SalaryProps = {
       supervisor: {
         numberOfSupervisors,
         supervisorSalary,
@@ -110,7 +94,7 @@ export const useData = () => {
     setSalary(salary);
 
     // Totals
-    const totals: any = {
+    const totals: TotalsProps = {
       supervisorTotalSalary:
         supervisorSalary * numberOfSupervisors +
         (sales * average * supervisorComission) / 100,
@@ -159,29 +143,41 @@ export const useData = () => {
   }, [
     monthsOfPayment,
     comissionRates,
-    taxes,
     taxRate,
-    paymentWithTax,
     nonPayments,
-    lost,
-    liquid,
+    numberOfSupervisors,
+    supervisorSalary,
+    supervisorComission,
+    numberOfSellers,
+    sellerSalary,
+    sellerComission,
+    sales,
+    average,
+    numberOfDays,
+    VTValue,
+    VRValue,
+    charges,
+    media,
+    accountant,
+    telephone,
   ]);
 
   useEffect(() => {
     // Payments
+    setMonthsOfPayment(4);
     setComissionRates([0.95, 0.95, 0.95, 0.95]);
-    setNonPayments([0, 10, 10, 0]);
     setTaxRate(17);
+    setNonPayments([0, 10, 10, 0]);
 
     // Salary
+    setNumberOfSupervisors(4);
+    setSupervisorSalary(5000);
+    setSupervisorComission(0.2);
+    setNumberOfSellers(10);
+    setSellerSalary(600);
+    setSellerComission(1.0);
     setSales(33);
     setAverage(35000);
-    setSupervisorSalary(5000);
-    setSellerSalary(600);
-    setSupervisorComission(0.2);
-    setSellerComission(1.0);
-    setNumberOfSupervisors(4);
-    setNumberOfSellers(10);
     setNumberOfDays(22);
     setVTValue(22);
     setVRValue(15);
@@ -193,7 +189,28 @@ export const useData = () => {
     setTelephone(500);
   }, []);
 
-  console.log(totals);
-
-  return { data, setData };
+  return {
+    payments,
+    setMonthsOfPayment,
+    setComissionRates,
+    setTaxRate,
+    setNonPayments,
+    salary,
+    setNumberOfSupervisors,
+    setSupervisorSalary,
+    setSupervisorComission,
+    setNumberOfSellers,
+    setSellerSalary,
+    setSellerComission,
+    setSales,
+    setAverage,
+    setNumberOfDays,
+    setVTValue,
+    setVRValue,
+    setCharges,
+    totals,
+    setMedia,
+    setAccountant,
+    setTelephone,
+  };
 };

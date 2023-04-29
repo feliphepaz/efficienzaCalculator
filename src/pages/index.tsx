@@ -4,8 +4,6 @@ import { useData } from "@/hooks/useData";
 import { useEffect } from "react";
 
 export default function Home() {
-  const { data, setData } = useData();
-
   return (
     <main className="container">
       <form>
