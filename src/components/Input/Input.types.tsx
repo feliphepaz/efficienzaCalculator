@@ -4,4 +4,5 @@ export interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
   field: string;
   label: string;
   type: string;
+  allowDot?: boolean;
 }
