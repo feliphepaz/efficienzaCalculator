@@ -4,6 +4,7 @@ import Step2 from "@/layouts/Step2";
 import Step3 from "@/layouts/Step3";
 import { useState } from "react";
 import { useData } from "@/hooks/useData";
+import Result from "@/layouts/Result";
 
 export default function Home() {
   const [disclaimer, setDisclaimer] = useState(false);
@@ -61,7 +62,8 @@ export default function Home() {
         steps={["Etapa 1", "Etapa 2", "Etapa 3", "Resultado"]}
         stepActive={step}
       />
-      {step === 1 && (
+      <Result payments={payments} totals={totals} />
+      {/* {step === 1 && (
         <Step1
           payments={payments}
           monthsOfPayment={monthsOfPayment}
@@ -98,7 +100,7 @@ export default function Home() {
           setTelephone={setTelephone}
           setValidSteps={setValidSteps}
         />
-      )}
+      )} */}
       {disclaimer && (
         <p className="disclaimer">Você precisa preencher todos os campos!</p>
       )}
