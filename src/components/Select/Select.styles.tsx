@@ -4,6 +4,7 @@ export const StyledSelect = styled.div`
   label {
     font-weight: 500;
     font-size: 24px;
+    line-height: 120%;
   }
   select {
     margin-top: 15px;

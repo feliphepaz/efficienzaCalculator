@@ -4,6 +4,7 @@ export const StyledInput = styled.div`
   label {
     font-weight: 500;
     font-size: 24px;
+    line-height: 120%;
   }
   input {
     margin-top: 15px;

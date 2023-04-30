@@ -2,6 +2,9 @@ import { useEffect, useState } from "react";
 import { PaymentsProps, SalaryProps, TotalsProps } from "@/types/useData";
 
 export const useData = () => {
+  // Steps
+  const [step, setStep] = useState(1);
+
   // Payments
   const [payments, setPayments] = useState<PaymentsProps[]>([]);
   const [monthsOfPayment, setMonthsOfPayment] = useState(0);
@@ -190,6 +193,8 @@ export const useData = () => {
   }, []);
 
   return {
+    step,
+    setStep,
     payments,
     setMonthsOfPayment,
     setComissionRates,

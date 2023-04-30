@@ -4,6 +4,7 @@ export const StyledGroup = styled.section`
   h3 {
     font-weight: 500;
     font-size: 24px;
+    line-height: 120%;
   }
   .group-fields {
     margin-top: 15px;
@@ -12,9 +13,11 @@ export const StyledGroup = styled.section`
     div {
       display: flex;
       flex-direction: column;
+      width: 100%;
       label {
         font-weight: 500;
         font-size: 18px;
+        line-height: 120%;
       }
       input {
         margin-top: 10px;
