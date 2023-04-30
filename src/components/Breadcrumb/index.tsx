@@ -7,7 +7,7 @@ export default function Breadcrumb({ steps, stepActive }: BreadcrumbProps) {
       <hr />
       <ul>
         {steps.map((stepName, step) => (
-          <li className={step + 1 === stepActive ? "active" : ""}>
+          <li key={step} className={step + 1 === stepActive ? "active" : ""}>
             <span>{step + 1}</span>
             <h2>{stepName}</h2>
           </li>

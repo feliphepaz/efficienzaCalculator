@@ -4,10 +4,11 @@ import { PaymentsProps, SalaryProps, TotalsProps } from "@/types/useData";
 export const useData = () => {
   // Steps
   const [step, setStep] = useState(1);
+  const [validSteps, setValidSteps] = useState([false, false, false]);
 
   // Payments
   const [payments, setPayments] = useState<PaymentsProps[]>([]);
-  const [monthsOfPayment, setMonthsOfPayment] = useState(0);
+  const [monthsOfPayment, setMonthsOfPayment] = useState(1);
   const [comissionRates, setComissionRates] = useState<number[]>([]);
   const [taxRate, setTaxRate] = useState(0);
   const [nonPayments, setNonPayments] = useState<number[]>([]);
@@ -166,12 +167,6 @@ export const useData = () => {
   ]);
 
   useEffect(() => {
-    // Payments
-    setMonthsOfPayment(4);
-    setComissionRates([0.95, 0.95, 0.95, 0.95]);
-    setTaxRate(17);
-    setNonPayments([0, 10, 10, 0]);
-
     // Salary
     setNumberOfSupervisors(4);
     setSupervisorSalary(5000);
@@ -195,8 +190,12 @@ export const useData = () => {
   return {
     step,
     setStep,
+    validSteps,
+    setValidSteps,
     payments,
+    monthsOfPayment,
     setMonthsOfPayment,
+    comissionRates,
     setComissionRates,
     setTaxRate,
     setNonPayments,
