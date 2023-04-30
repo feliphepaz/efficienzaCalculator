@@ -5,16 +5,16 @@ import { useData } from "@/hooks/useData";
 
 export default function Home() {
   const {
-    step,
-    setStep,
-    validSteps,
-    setValidSteps,
     payments,
     monthsOfPayment,
     setMonthsOfPayment,
     setComissionRates,
     setTaxRate,
     setNonPayments,
+    step,
+    setStep,
+    validSteps,
+    setValidSteps,
   } = useData();
 
   return (
@@ -24,13 +24,13 @@ export default function Home() {
         stepActive={1}
       />
       <Step1
-        setValidSteps={setValidSteps}
         payments={payments}
         monthsOfPayment={monthsOfPayment}
         setMonthsOfPayment={setMonthsOfPayment}
         setComissionRates={setComissionRates}
         setTaxRate={setTaxRate}
         setNonPayments={setNonPayments}
+        setValidSteps={setValidSteps}
       />
       <Step2 />
       <nav className="navegation">

@@ -2,10 +2,6 @@ import { useEffect, useState } from "react";
 import { PaymentsProps, SalaryProps, TotalsProps } from "@/types/useData";
 
 export const useData = () => {
-  // Steps
-  const [step, setStep] = useState(1);
-  const [validSteps, setValidSteps] = useState([false, false, false]);
-
   // Payments
   const [payments, setPayments] = useState<PaymentsProps[]>([]);
   const [monthsOfPayment, setMonthsOfPayment] = useState(1);
@@ -33,6 +29,10 @@ export const useData = () => {
   const [media, setMedia] = useState(0);
   const [accountant, setAccountant] = useState(0);
   const [telephone, setTelephone] = useState(0);
+
+  // Steps
+  const [step, setStep] = useState(1);
+  const [validSteps, setValidSteps] = useState([false, false, false]);
 
   useEffect(() => {
     // Payments
@@ -188,10 +188,6 @@ export const useData = () => {
   }, []);
 
   return {
-    step,
-    setStep,
-    validSteps,
-    setValidSteps,
     payments,
     monthsOfPayment,
     setMonthsOfPayment,
@@ -216,5 +212,9 @@ export const useData = () => {
     setMedia,
     setAccountant,
     setTelephone,
+    step,
+    setStep,
+    validSteps,
+    setValidSteps,
   };
 };
