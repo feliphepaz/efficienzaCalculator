@@ -41,6 +41,8 @@ export default function Step1({
     const emptyFields = fieldsArray.filter((field: any) => field.value === "");
     if (emptyFields.length === 0) {
       setValidSteps([true, false, false]);
+    } else {
+      setValidSteps([false, false, false]);
     }
   }, [payments]);
 

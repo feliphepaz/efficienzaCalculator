@@ -166,27 +166,6 @@ export const useData = () => {
     telephone,
   ]);
 
-  useEffect(() => {
-    // Salary
-    setNumberOfSupervisors(4);
-    setSupervisorSalary(5000);
-    setSupervisorComission(0.2);
-    setNumberOfSellers(10);
-    setSellerSalary(600);
-    setSellerComission(1.0);
-    setSales(33);
-    setAverage(35000);
-    setNumberOfDays(22);
-    setVTValue(22);
-    setVRValue(15);
-    setCharges(80);
-
-    // Totals
-    setMedia(500);
-    setAccountant(1000);
-    setTelephone(500);
-  }, []);
-
   return {
     payments,
     monthsOfPayment,

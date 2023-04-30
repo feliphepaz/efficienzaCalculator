@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const StyledBreadcrumb = styled.section`
-  margin-bottom: 60px;
+  margin-bottom: 50px;
   display: flex;
   flex-direction: column;
   hr {
