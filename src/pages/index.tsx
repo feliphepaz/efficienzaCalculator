@@ -105,18 +105,12 @@ export default function Home() {
         <p className="disclaimer">Você precisa preencher todos os campos!</p>
       )}
       <nav className="navegation">
-        <button
-          onClick={prevStep}
-          style={step === 1 ? { visibility: "hidden" } : {}}
-        >
-          « Voltar
-        </button>
-        <button
-          onClick={nextStep}
-          style={step === 4 ? { visibility: "hidden" } : {}}
-        >
-          {step === 3 ? "Ver resultado »" : "Avançar »"}
-        </button>
+        <button onClick={prevStep}>« Voltar</button>
+        {step !== 4 && (
+          <button onClick={nextStep}>
+            {step === 3 ? "Ver resultado »" : "Avançar »"}
+          </button>
+        )}
       </nav>
     </main>
   );
