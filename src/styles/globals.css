@@ -16,6 +16,14 @@
   gap: 50px;
 }
 
+.disclaimer {
+  font-size: 18px;
+  font-weight: 500;
+  color: #ff6242;
+  margin-top: 40px;
+  margin-bottom: -30px;
+}
+
 .navegation {
   display: flex;
   justify-content: space-between;
