@@ -62,8 +62,7 @@ export default function Home() {
         steps={["Etapa 1", "Etapa 2", "Etapa 3", "Resultado"]}
         stepActive={step}
       />
-      <Result payments={payments} totals={totals} />
-      {/* {step === 1 && (
+      {step === 1 && (
         <Step1
           payments={payments}
           monthsOfPayment={monthsOfPayment}
@@ -100,13 +99,24 @@ export default function Home() {
           setTelephone={setTelephone}
           setValidSteps={setValidSteps}
         />
-      )} */}
+      )}
+      {step === 4 && <Result payments={payments} totals={totals} />}
       {disclaimer && (
         <p className="disclaimer">Você precisa preencher todos os campos!</p>
       )}
       <nav className="navegation">
-        <button onClick={prevStep}>« Voltar</button>
-        <button onClick={nextStep}>Avançar »</button>
+        <button
+          onClick={prevStep}
+          style={step === 1 ? { visibility: "hidden" } : {}}
+        >
+          « Voltar
+        </button>
+        <button
+          onClick={nextStep}
+          style={step === 4 ? { visibility: "hidden" } : {}}
+        >
+          {step === 3 ? "Ver resultado »" : "Avançar »"}
+        </button>
       </nav>
     </main>
   );
