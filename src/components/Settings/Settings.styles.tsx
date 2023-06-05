@@ -30,7 +30,7 @@ export const StyledSettings = styled.div`
       font-weight: 700;
       letter-spacing: 0.1em;
       background: #ff6242;
-      padding: 2px 7px;
+      padding: 0px 5px;
       border-radius: 5px;
       margin-left: 10px;
       color: #ffffff;

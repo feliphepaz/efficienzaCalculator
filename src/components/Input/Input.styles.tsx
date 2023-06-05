@@ -45,7 +45,7 @@ export const StyledInput = styled.div`
         &.active {
           display: block;
           position: absolute;
-          bottom: 28px;
+          bottom: 25px;
           left: -94px;
           animation: showModal 0.2s forwards;
         }
