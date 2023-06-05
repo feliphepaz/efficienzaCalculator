@@ -8,18 +8,21 @@ export const StyledResult = styled.section`
     h2 {
       font-weight: 500;
       font-size: 24px;
-      line-height: 120%;
+      line-height: 150%;
     }
+
     .payments-flow {
       margin: 40px 0px;
+
       li {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
         gap: 20px;
         font-weight: 500;
         font-size: 18px;
-        line-height: 120%;
+        line-height: 150%;
       }
+
       hr {
         border: 0px;
         height: 1px;
@@ -28,13 +31,16 @@ export const StyledResult = styled.section`
         margin: 15px 0px;
       }
     }
+
     .total {
       font-weight: 500;
       font-size: 20px;
-      line-height: 120%;
+      line-height: 150%;
+
       .positive {
         color: green;
       }
+
       .negative {
         color: red;
       }

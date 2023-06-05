@@ -2,34 +2,48 @@ import styled from "styled-components";
 
 export const StyledGroup = styled.section`
   h3 {
-    font-weight: 500;
-    font-size: 24px;
-    line-height: 120%;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 150%;
   }
+
   .group-fields {
-    margin-top: 15px;
+    margin-top: 5px;
     display: flex;
     gap: 10px;
+
     div {
       display: flex;
       flex-direction: column;
       width: 100%;
+
       label {
         font-weight: 500;
-        font-size: 18px;
-        line-height: 120%;
+        font-size: 14px;
+        line-height: 150%;
       }
+
       input {
-        margin-top: 10px;
+        font-family: "Poppins", Arial, Helvetica, sans-serif;
+        margin-top: 5px;
         height: 50px;
         width: 100%;
         background: rgba(56, 182, 255, 0.2);
         border: none;
         border-radius: 5px;
         padding: 12px 10px;
-        font-size: 20px;
+        font-size: 16px;
         font-weight: 500;
         outline: none;
+
+        &:focus {
+          outline: 2px solid #38b6ff;
+          background: #ffffff;
+        }
+
+        &::placeholder {
+          color: rgba(0, 0, 0, 0.1);
+        }
       }
     }
   }

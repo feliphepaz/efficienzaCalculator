@@ -47,38 +47,44 @@ export default function Step1({
   }, [payments]);
 
   return (
-    <form ref={step1}>
-      <Select
-        field="months-of-payment"
-        label="Serão quantos meses de pagamento?"
-        options={[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]}
-        onChange={({ target }) => setMonthsOfPayment(+target.value)}
-      />
-      <Group
-        field="comission-rates"
-        label="Taxas de comissão (em %)"
-        months={monthsOfPayment}
-        type="number"
-        onChange={({ target }) =>
-          setComissionRatesFields(+target.value, target.dataset.index)
-        }
-      />
-      <Input
-        field="tax-rate"
-        label="Qual será a taxa de imposto? (em %)"
-        type="number"
-        allowDot={true}
-        onChange={({ target }) => setTaxRate(+target.value)}
-      />
-      <Group
-        field="non-payments"
-        label="Taxas de inadimplência (em %)"
-        months={monthsOfPayment}
-        type="number"
-        onChange={({ target }) =>
-          setNonPaymentsFields(+target.value, target.dataset.index)
-        }
-      />
-    </form>
+    <>
+      <p className="instruction">
+        Adicione agora todas as taxas que a administradora possui e o que será
+        repassado
+      </p>
+      <form ref={step1}>
+        <Select
+          field="months-of-payment"
+          label="Serão quantos meses de pagamento?"
+          options={[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]}
+          onChange={({ target }) => setMonthsOfPayment(+target.value)}
+        />
+        <Input
+          field="tax-rate"
+          label="Qual será a taxa de imposto? (em %)"
+          type="number"
+          allowDot={true}
+          onChange={({ target }) => setTaxRate(+target.value)}
+        />
+        <Group
+          field="comission-rates"
+          label="Taxas de comissão (em %)"
+          months={monthsOfPayment}
+          type="number"
+          onChange={({ target }) =>
+            setComissionRatesFields(+target.value, target.dataset.index)
+          }
+        />
+        <Group
+          field="non-payments"
+          label="Taxas de inadimplência (em %)"
+          months={monthsOfPayment}
+          type="number"
+          onChange={({ target }) =>
+            setNonPaymentsFields(+target.value, target.dataset.index)
+          }
+        />
+      </form>
+    </>
   );
 }
