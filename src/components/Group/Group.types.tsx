@@ -5,4 +5,5 @@ export interface GroupProps extends InputHTMLAttributes<HTMLInputElement> {
   label: string;
   months: number;
   type: string;
+  tooltip: string;
 }

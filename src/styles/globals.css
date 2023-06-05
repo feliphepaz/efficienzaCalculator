@@ -43,7 +43,7 @@
   margin-top: 40px;
 }
 
-.navegation button {
+.btn {
   font-family: "Poppins", Arial, Helvetica, sans-serif;
   display: flex;
   align-items: center;
@@ -61,20 +61,31 @@
   transition: 0.2s;
 }
 
-.navegation button span {
+.btn span {
   width: 100%;
 }
 
-.navegation button:hover,
-.navegation button:active {
+.btn:hover,
+.btn:active {
   background: #38b6ff;
   color: #ffffff;
 }
 
-.navegation button:focus {
+.btn:focus {
   outline: none;
 }
 
 .prev-step svg {
   transform: rotate(-180deg);
+}
+
+@keyframes showModal {
+  0% {
+    opacity: 0;
+    transform: translate3d(0px, -30px, 0px);
+  }
+  100% {
+    opacity: 1;
+    transform: translate3d(0px, 0px, 0px);
+  }
 }

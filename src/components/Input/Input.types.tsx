@@ -5,4 +5,5 @@ export interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
   label: string;
   type: string;
   allowDot?: boolean;
+  tooltip: string;
 }

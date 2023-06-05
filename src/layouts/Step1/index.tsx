@@ -57,6 +57,7 @@ export default function Step1({
           field="months-of-payment"
           label="Serão quantos meses de pagamento?"
           options={[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]}
+          tooltip="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum volutpat porttitor dolor, eu posuere ex vitae. Ut et erat tincidunt"
           onChange={({ target }) => setMonthsOfPayment(+target.value)}
         />
         <Input
@@ -64,6 +65,7 @@ export default function Step1({
           label="Qual será a taxa de imposto? (em %)"
           type="number"
           allowDot={true}
+          tooltip="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum volutpat porttitor dolor, eu posuere ex vitae. Ut et erat tincidunt"
           onChange={({ target }) => setTaxRate(+target.value)}
         />
         <Group
@@ -71,6 +73,7 @@ export default function Step1({
           label="Taxas de comissão (em %)"
           months={monthsOfPayment}
           type="number"
+          tooltip="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum volutpat porttitor dolor, eu posuere ex vitae. Ut et erat tincidunt"
           onChange={({ target }) =>
             setComissionRatesFields(+target.value, target.dataset.index)
           }
@@ -80,6 +83,7 @@ export default function Step1({
           label="Taxas de inadimplência (em %)"
           months={monthsOfPayment}
           type="number"
+          tooltip="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum volutpat porttitor dolor, eu posuere ex vitae. Ut et erat tincidunt"
           onChange={({ target }) =>
             setNonPaymentsFields(+target.value, target.dataset.index)
           }

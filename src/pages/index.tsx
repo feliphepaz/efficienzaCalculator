@@ -11,6 +11,7 @@ import About from "@/layouts/About";
 import Footer from "@/layouts/Footer";
 import Image from "next/image";
 import Arrow from "@/components/Arrow";
+import Settings from "@/components/Settings";
 
 export default function Home() {
   const [disclaimer, setDisclaimer] = useState(false);
@@ -69,6 +70,7 @@ export default function Home() {
       <main className="tool">
         <div className="container">
           <div className="box">
+            <Settings />
             <Breadcrumb
               steps={["Etapa 1", "Etapa 2", "Etapa 3", "Resultado"]}
               stepActive={step}
@@ -118,12 +120,12 @@ export default function Home() {
               </p>
             )}
             <nav className="navegation">
-              <button className="prev-step" onClick={prevStep}>
+              <button className="prev-step btn" onClick={prevStep}>
                 <Arrow />
                 <span>Voltar</span>
               </button>
               {step !== 4 && (
-                <button className="next-step" onClick={nextStep}>
+                <button className="next-step btn" onClick={nextStep}>
                   <span>{step === 3 ? "Ver resultado" : "Avançar"}</span>
                   <Arrow />
                 </button>

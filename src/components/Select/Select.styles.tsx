@@ -1,10 +1,56 @@
 import styled from "styled-components";
 
 export const StyledSelect = styled.div`
-  label {
-    font-weight: 700;
-    font-size: 16px;
-    line-height: 150%;
+  .label-wrapper {
+    display: flex;
+    align-items: center;
+
+    label {
+      font-weight: 700;
+      font-size: 16px;
+      line-height: 150%;
+    }
+
+    .tooltip {
+      display: flex;
+      position: relative;
+
+      img {
+        margin-left: 8px;
+      }
+
+      p {
+        display: none;
+        position: relative;
+        font-size: 14px;
+        width: 250px;
+        background: #ff6242;
+        color: #ffffff;
+        font-weight: 500;
+        line-height: 150%;
+        padding: 10px 12px;
+        border-radius: 20px;
+
+        &::after {
+          content: "";
+          position: absolute;
+          top: 100%;
+          left: 105px;
+          width: 0;
+          border-top: 5px solid #ff6242;
+          border-left: 5px solid transparent;
+          border-right: 5px solid transparent;
+        }
+
+        &.active {
+          display: block;
+          position: absolute;
+          bottom: 28px;
+          left: -94px;
+          animation: showModal 0.2s forwards;
+        }
+      }
+    }
   }
 
   select {
