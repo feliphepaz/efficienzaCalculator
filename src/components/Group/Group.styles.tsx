@@ -74,6 +74,7 @@ export const StyledGroup = styled.section`
         flex-direction: row;
         align-items: center;
         margin-top: 5px;
+        width: 100%;
 
         input {
           font-family: "Poppins", Arial, Helvetica, sans-serif;

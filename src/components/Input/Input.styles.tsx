@@ -58,6 +58,7 @@ export const StyledInput = styled.div<StyledInputProps>`
     display: flex;
     align-items: center;
     margin-top: 10px;
+    width: 100%;
 
     input {
       font-family: "Poppins", Arial, Helvetica, sans-serif;

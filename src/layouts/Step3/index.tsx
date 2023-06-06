@@ -23,25 +23,34 @@ export default function Step3({
   }, [totals]);
 
   return (
-    <form ref={step3}>
-      <Input
-        field="media"
-        label="Quanto será utilizado de verba para mídia? (em R$)"
-        type="number"
-        onChange={({ target }) => setMedia(+target.value)}
-      />
-      <Input
-        field="accountant"
-        label="Quanto será pago para o contador? (em R$)"
-        type="number"
-        onChange={({ target }) => setAccountant(+target.value)}
-      />
-      <Input
-        field="telephone"
-        label="Quanto será gasto de telefone? (em R$)"
-        type="number"
-        onChange={({ target }) => setTelephone(+target.value)}
-      />
-    </form>
+    <>
+      <p className="instruction">
+        Aqui você deve preencher os campos com todos os gastos referente a
+        anúncios, serviços, etc
+      </p>
+      <form ref={step3}>
+        <Input
+          field="media"
+          label="Quanto será utilizado de verba para mídia?"
+          type="currency"
+          tooltip="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum volutpat porttitor dolor, eu posuere ex vitae. Ut et erat tincidunt"
+          onChange={({ target }) => setMedia(+(target as any).rawValue)}
+        />
+        <Input
+          field="accountant"
+          label="Quanto será pago para o contador?"
+          type="currency"
+          tooltip="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum volutpat porttitor dolor, eu posuere ex vitae. Ut et erat tincidunt"
+          onChange={({ target }) => setAccountant(+(target as any).rawValue)}
+        />
+        <Input
+          field="telephone"
+          label="Quanto será gasto de telefone?"
+          type="currency"
+          tooltip="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum volutpat porttitor dolor, eu posuere ex vitae. Ut et erat tincidunt"
+          onChange={({ target }) => setTelephone(+(target as any).rawValue)}
+        />
+      </form>
+    </>
   );
 }

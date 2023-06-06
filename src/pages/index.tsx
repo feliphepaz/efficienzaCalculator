@@ -70,7 +70,12 @@ export default function Home() {
       <main className="tool">
         <div className="container">
           <div className="box">
-            <Settings />
+            <Settings
+              setSupervisorSalary={setSupervisorSalary}
+              setSellerSalary={setSellerSalary}
+              setVTValue={setVTValue}
+              setVRValue={setVRValue}
+            />
             <Breadcrumb
               steps={["Etapa 1", "Etapa 2", "Etapa 3", "Resultado"]}
               stepActive={step}
@@ -90,16 +95,12 @@ export default function Home() {
               <Step2
                 salary={salary}
                 setNumberOfSupervisors={setNumberOfSupervisors}
-                setSupervisorSalary={setSupervisorSalary}
-                setSupervisorComission={setSupervisorComission}
                 setNumberOfSellers={setNumberOfSellers}
-                setSellerSalary={setSellerSalary}
+                setSupervisorComission={setSupervisorComission}
                 setSellerComission={setSellerComission}
                 setSales={setSales}
                 setAverage={setAverage}
                 setNumberOfDays={setNumberOfDays}
-                setVTValue={setVTValue}
-                setVRValue={setVRValue}
                 setCharges={setCharges}
                 setValidSteps={setValidSteps}
               />

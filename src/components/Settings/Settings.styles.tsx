@@ -87,10 +87,5 @@ export const StyledSettings = styled.div`
       background: rgba(56, 182, 255, 0.2);
       margin: 15px 0px;
     }
-
-    button {
-      width: 100%;
-      margin-top: 30px;
-    }
   }
 `;

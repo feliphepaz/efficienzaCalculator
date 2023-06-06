@@ -24,6 +24,8 @@ export const useData = () => {
   const [VRValue, setVRValue] = useState(0);
   const [charges, setCharges] = useState(0);
 
+  console.log(salary);
+
   // Totals
   const [totals, setTotals] = useState<TotalsProps | null>(null);
   const [media, setMedia] = useState(0);

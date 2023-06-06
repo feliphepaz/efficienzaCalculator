@@ -3,8 +3,14 @@ import { StyledSettings } from "./Settings.styles";
 import Image from "next/image";
 import Switch from "../Switch";
 import Input from "../Input";
+import { SettingsProps } from "./Settings.types";
 
-export default function Settings() {
+export default function Settings({
+  setSupervisorSalary,
+  setSellerSalary,
+  setVTValue,
+  setVRValue,
+}: SettingsProps) {
   const [showSettings, setShowSettings] = useState(false);
   const [disableSupervisorSalary, setDisableSupervisorSalary] = useState(false);
   const [disableSellerSalary, setDisableSellerSalary] = useState(false);
@@ -34,12 +40,13 @@ export default function Settings() {
           </div>
           {disableSupervisorSalary && (
             <Input
-              field="tax-rate"
-              label="Qual será a taxa de imposto? (em %)"
-              type="number"
-              allowDot={true}
+              field="supervisor-salary"
+              label="Qual será o salário de um supervisor?"
+              type="currency"
               tooltip="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum volutpat porttitor dolor, eu posuere ex vitae. Ut et erat tincidunt"
-              onChange={({ target }) => setTaxRate(+target.value)}
+              onChange={({ target }) =>
+                setSupervisorSalary(+(target as any).rawValue)
+              }
             />
           )}
         </div>
@@ -54,12 +61,13 @@ export default function Settings() {
           </div>
           {disableSellerSalary && (
             <Input
-              field="tax-rate"
-              label="Qual será a taxa de imposto? (em %)"
-              type="number"
-              allowDot={true}
+              field="seller-salary"
+              label="Qual será o salário de um vendedor?"
+              type="currency"
               tooltip="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum volutpat porttitor dolor, eu posuere ex vitae. Ut et erat tincidunt"
-              onChange={({ target }) => setTaxRate(+target.value)}
+              onChange={({ target }) =>
+                setSellerSalary(+(target as any).rawValue)
+              }
             />
           )}
         </div>
@@ -74,12 +82,11 @@ export default function Settings() {
           </div>
           {disableVRValue && (
             <Input
-              field="tax-rate"
-              label="Qual será a taxa de imposto? (em %)"
-              type="number"
-              allowDot={true}
+              field="vr-value"
+              label="Qual será o valor do VR?"
+              type="currency"
               tooltip="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum volutpat porttitor dolor, eu posuere ex vitae. Ut et erat tincidunt"
-              onChange={({ target }) => setTaxRate(+target.value)}
+              onChange={({ target }) => setVRValue(+(target as any).rawValue)}
             />
           )}
         </div>
@@ -94,18 +101,14 @@ export default function Settings() {
           </div>
           {disableVTValue && (
             <Input
-              field="tax-rate"
-              label="Qual será a taxa de imposto? (em %)"
-              type="number"
-              allowDot={true}
+              field="vt-value"
+              label="Qual será o valor do VT?"
+              type="currency"
               tooltip="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum volutpat porttitor dolor, eu posuere ex vitae. Ut et erat tincidunt"
-              onChange={({ target }) => setTaxRate(+target.value)}
+              onChange={({ target }) => setVTValue(+(target as any).rawValue)}
             />
           )}
         </div>
-        <button className="btn">
-          <span>Atualizar</span>
-        </button>
       </div>
     </StyledSettings>
   );

@@ -62,27 +62,33 @@ export default function Step1({
         />
         <Input
           field="tax-rate"
-          label="Qual será a taxa de imposto? (em %)"
-          type="currency"
+          label="Qual será a taxa de imposto?"
+          type="percentage"
           tooltip="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum volutpat porttitor dolor, eu posuere ex vitae. Ut et erat tincidunt"
-          onChange={({ target }) => setTaxRate((target as any).rawValue)}
+          onChange={({ target }) => setTaxRate(+target.value.replace(",", "."))}
         />
         <Group
           field="comission-rates"
-          label="Taxas de comissão (em %)"
+          label="Taxas de comissão"
           months={monthsOfPayment}
           tooltip="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum volutpat porttitor dolor, eu posuere ex vitae. Ut et erat tincidunt"
           onChange={({ target }) =>
-            setComissionRatesFields(+target.value, target.dataset.index)
+            setComissionRatesFields(
+              +target.value.replace(",", "."),
+              target.dataset.index
+            )
           }
         />
         <Group
           field="non-payments"
-          label="Taxas de inadimplência (em %)"
+          label="Taxas de inadimplência"
           months={monthsOfPayment}
           tooltip="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum volutpat porttitor dolor, eu posuere ex vitae. Ut et erat tincidunt"
           onChange={({ target }) =>
-            setNonPaymentsFields(+target.value, target.dataset.index)
+            setNonPaymentsFields(
+              +target.value.replace(",", "."),
+              target.dataset.index
+            )
           }
         />
       </form>
