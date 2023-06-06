@@ -13,11 +13,11 @@ export default function Step4({
   setTel,
   howMeet,
   setHowMeet,
-  step,
+  newsletterRegister,
+  setNewsletterRegister,
   setValidSteps,
 }: Step4Props) {
   const step4 = useRef<HTMLFormElement>(null);
-  const [newsletterRegister, setNewsletterRegister] = useState(false);
 
   useEffect(() => {
     const fields = step4.current?.querySelectorAll("input");

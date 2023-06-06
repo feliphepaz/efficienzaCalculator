@@ -7,6 +7,7 @@ export interface Step4Props {
   setTel: (value: string) => void;
   howMeet: string;
   setHowMeet: (value: string) => void;
-  step: number;
+  newsletterRegister: boolean;
+  setNewsletterRegister: (value: boolean) => void;
   setValidSteps: (value: boolean[]) => void;
 }

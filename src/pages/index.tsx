@@ -66,6 +66,8 @@ export default function Home() {
     setTel,
     howMeet,
     setHowMeet,
+    newsletterRegister,
+    setNewsletterRegister,
     step,
     setStep,
     validSteps,
@@ -194,7 +196,8 @@ export default function Home() {
                 setTel={setTel}
                 howMeet={howMeet}
                 setHowMeet={setHowMeet}
-                step={step}
+                newsletterRegister={newsletterRegister}
+                setNewsletterRegister={setNewsletterRegister}
                 setValidSteps={setValidSteps}
               />
             )}

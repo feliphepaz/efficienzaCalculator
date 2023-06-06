@@ -39,6 +39,7 @@ export const useData = () => {
   const [email, setEmail] = useState("");
   const [tel, setTel] = useState("");
   const [howMeet, setHowMeet] = useState("");
+  const [newsletterRegister, setNewsletterRegister] = useState(false);
 
   // Steps
   const [step, setStep] = useState(1);
@@ -226,6 +227,8 @@ export const useData = () => {
     setTel,
     howMeet,
     setHowMeet,
+    newsletterRegister,
+    setNewsletterRegister,
     step,
     setStep,
     validSteps,
