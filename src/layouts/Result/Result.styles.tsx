@@ -98,6 +98,12 @@ export const StyledResult = styled.section`
               margin-top: 20px;
             }
 
+            &:last-child {
+              .payment-value {
+                color: #ff6242;
+              }
+            }
+
             .payment-label {
               font-weight: 700;
               line-height: 150%;
@@ -105,7 +111,7 @@ export const StyledResult = styled.section`
 
             .payment-value {
               font-weight: 500;
-              color: #ff6242;
+              color: #16a100;
               line-height: 150%;
             }
           }

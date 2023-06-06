@@ -44,6 +44,7 @@ export default function Result({ payments, totals }: ResultProps) {
                           {paymentIndex + 1 - installmentIndex}º mês de vendas
                         </span>
                         <span className="payment-value">
+                          +{" "}
                           {formatter.format(payments[installmentIndex].liquid)}
                         </span>
                       </li>
@@ -55,7 +56,7 @@ export default function Result({ payments, totals }: ResultProps) {
                     Total custo equipe consórcio
                   </span>
                   <span className="payment-value">
-                    {totals && formatter.format(totals.total)}
+                    - {totals && formatter.format(totals.total)}
                   </span>
                 </li>
               </ul>
@@ -77,8 +78,8 @@ export default function Result({ payments, totals }: ResultProps) {
           Ao final de <strong>6 meses</strong> mantendo a média de{" "}
           <strong>33 vendas</strong>, a concessionária terá formado uma carteira
           de <strong>198 consorciados</strong> e pelo crédito médio de R$
-          35.000,00 terá R${" "}
-          <strong className="invoicing">6.930.000,00 à faturar</strong>.
+          35.000,00 terá{" "}
+          <strong className="invoicing">R$ 6.930.000,00 à faturar</strong>.
         </p>
       </div>
     </StyledResult>

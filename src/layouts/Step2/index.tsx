@@ -59,7 +59,6 @@ export default function Step2({
           type="percentage"
           tooltip="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum volutpat porttitor dolor, eu posuere ex vitae. Ut et erat tincidunt"
           placeholder="Digite a comissão"
-          value={supervisorComission}
           onChange={({ target }) =>
             setSupervisorComission(+target.value.replace(",", "."))
           }
@@ -79,7 +78,6 @@ export default function Step2({
           type="percentage"
           tooltip="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum volutpat porttitor dolor, eu posuere ex vitae. Ut et erat tincidunt"
           placeholder="Digite a comissão"
-          value={sellerComission}
           onChange={({ target }) =>
             setSellerComission(+target.value.replace(",", "."))
           }
@@ -117,7 +115,6 @@ export default function Step2({
           type="percentage"
           tooltip="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum volutpat porttitor dolor, eu posuere ex vitae. Ut et erat tincidunt"
           placeholder="Digite a taxa"
-          value={charges}
           onChange={({ target }) => setCharges(+target.value.replace(",", "."))}
         />
       </form>

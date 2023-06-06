@@ -72,7 +72,6 @@ export default function Step1({
           type="percentage"
           tooltip="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum volutpat porttitor dolor, eu posuere ex vitae. Ut et erat tincidunt"
           placeholder="Digite a taxa"
-          value={taxRate}
           onChange={({ target }) => setTaxRate(+target.value.replace(",", "."))}
         />
         <Group
