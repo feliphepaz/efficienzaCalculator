@@ -56,7 +56,7 @@ export const StyledResult = styled.section`
         align-items: center;
         min-width: 320px;
         width: 320px;
-        height: 275px;
+        height: 360px;
         border: 4px solid #000000;
         border-radius: 40px;
         padding: 30px;
