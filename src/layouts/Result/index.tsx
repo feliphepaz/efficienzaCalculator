@@ -1,7 +1,7 @@
 import { StyledResult } from "./Result.styles";
 import { ResultProps } from "./Result.types";
 
-export default function Result({ payments, totals }: ResultProps) {
+export default function Result({ payments, salary, totals }: ResultProps) {
   const cumulativeValues = payments.map((value, index) =>
     payments
       .slice(0, index + 1)
@@ -17,7 +17,7 @@ export default function Result({ payments, totals }: ResultProps) {
     <StyledResult>
       <div className="head">
         <span>Custo total</span>
-        <h2>R$ 37.420,00</h2>
+        <h2>{totals && formatter.format(totals.total)}</h2>
         <p>Caso não haja venda: R$ 27.852,00</p>
       </div>
       <div className="costs">
@@ -76,10 +76,15 @@ export default function Result({ payments, totals }: ResultProps) {
       <div className="resume">
         <p>
           Ao final de <strong>6 meses</strong> mantendo a média de{" "}
-          <strong>33 vendas</strong>, a concessionária terá formado uma carteira
-          de <strong>198 consorciados</strong> e pelo crédito médio de R$
-          35.000,00 terá{" "}
-          <strong className="invoicing">R$ 6.930.000,00 à faturar</strong>.
+          <strong>{salary?.sales} vendas</strong>, a concessionária terá formado
+          uma carteira de{" "}
+          <strong>{salary && salary.sales * 6} consorciados</strong> e pelo
+          crédito médio de {salary && formatter.format(salary.average)} terá{" "}
+          <strong className="invoicing">
+            {salary && formatter.format(salary.sales * 6 * salary.average)} à
+            faturar
+          </strong>
+          .
         </p>
       </div>
     </StyledResult>

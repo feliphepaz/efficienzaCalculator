@@ -201,12 +201,23 @@ export default function Home() {
                 setValidSteps={setValidSteps}
               />
             )}
-            {step === 5 && <Result payments={payments} totals={totals} />}
-            <nav className="navegation">
-              <button className="prev-step btn" onClick={prevStep}>
-                <Arrow />
-                <span>Voltar</span>
-              </button>
+            {step === 5 && (
+              <Result payments={payments} salary={salary} totals={totals} />
+            )}
+            <nav
+              style={
+                step !== 1
+                  ? { justifyContent: "space-between" }
+                  : { justifyContent: "flex-end" }
+              }
+              className="navegation"
+            >
+              {step !== 1 && (
+                <button className="prev-step btn" onClick={prevStep}>
+                  <Arrow />
+                  <span>Voltar</span>
+                </button>
+              )}
               {step !== 5 && (
                 <button className="next-step btn" onClick={nextStep}>
                   <span>{step === 4 ? "Ver resultado" : "Avançar"}</span>
