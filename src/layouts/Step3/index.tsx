@@ -33,7 +33,7 @@ export default function Step3({
         Aqui você deve preencher os campos com todos os gastos referente a
         anúncios, serviços, etc
       </p>
-      <form ref={step3}>
+      <form ref={step3} autoComplete="off">
         <Input
           field="media"
           label="Quanto será utilizado de verba para mídia?"

@@ -57,7 +57,7 @@ export default function Step1({
         Primeiramente, adicione todas as taxas que a administradora possui e o
         que será repassado
       </p>
-      <form ref={step1}>
+      <form ref={step1} autoComplete="off">
         <Select
           field="months-of-payment"
           label="Serão quantos meses de pagamento?"

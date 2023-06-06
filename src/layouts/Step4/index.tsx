@@ -38,7 +38,7 @@ export default function Step4({
         Por último, gostaríamos de saber mais sobre você! Preencha os dados com
         as suas informações
       </p>
-      <form ref={step4}>
+      <form ref={step4} autoComplete="off">
         <Input
           field="name"
           label="Nome"

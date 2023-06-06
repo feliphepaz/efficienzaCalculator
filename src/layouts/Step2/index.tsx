@@ -43,7 +43,7 @@ export default function Step2({
         Nos conte sobre a quantidade de funcionários que a sua equipe terá e
         outras informações
       </p>
-      <form ref={step2}>
+      <form ref={step2} autoComplete="off">
         <Input
           field="number-of-supervisors"
           label="Serão quantos supervisores?"
