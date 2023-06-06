@@ -21,7 +21,7 @@ export default function About() {
             operacional.
           </p>
           <a href="https://efficienzaconsultoria.com/" target="_blank">
-            Conheça nosso site{" "}
+            Conheça o nosso site{" "}
             <Image src={"/arrow-link.svg"} alt="Seta" width={21} height={14} />
           </a>
         </div>

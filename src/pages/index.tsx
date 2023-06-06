@@ -105,7 +105,7 @@ export default function Home() {
 
   useEffect(() => {
     const body = document.querySelector("body");
-    function proceedWithEnter(e: any) {
+    function proceedWithEnter(e: KeyboardEvent) {
       if (e.keyCode === 13) {
         nextStep();
       }
@@ -222,6 +222,7 @@ export default function Home() {
                 <button className="next-step btn" onClick={nextStep}>
                   <span>{step === 4 ? "Ver resultado" : "Avançar"}</span>
                   {step !== 4 && <Arrow />}
+                  <small>ou tecle enter</small>
                 </button>
               )}
             </nav>
