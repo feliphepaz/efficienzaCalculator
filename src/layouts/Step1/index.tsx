@@ -63,16 +63,14 @@ export default function Step1({
         <Input
           field="tax-rate"
           label="Qual será a taxa de imposto? (em %)"
-          type="number"
-          allowDot={true}
+          type="currency"
           tooltip="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum volutpat porttitor dolor, eu posuere ex vitae. Ut et erat tincidunt"
-          onChange={({ target }) => setTaxRate(+target.value)}
+          onChange={({ target }) => setTaxRate((target as any).rawValue)}
         />
         <Group
           field="comission-rates"
           label="Taxas de comissão (em %)"
           months={monthsOfPayment}
-          type="number"
           tooltip="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum volutpat porttitor dolor, eu posuere ex vitae. Ut et erat tincidunt"
           onChange={({ target }) =>
             setComissionRatesFields(+target.value, target.dataset.index)
@@ -82,7 +80,6 @@ export default function Step1({
           field="non-payments"
           label="Taxas de inadimplência (em %)"
           months={monthsOfPayment}
-          type="number"
           tooltip="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum volutpat porttitor dolor, eu posuere ex vitae. Ut et erat tincidunt"
           onChange={({ target }) =>
             setNonPaymentsFields(+target.value, target.dataset.index)

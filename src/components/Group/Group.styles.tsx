@@ -69,26 +69,42 @@ export const StyledGroup = styled.section`
         line-height: 150%;
       }
 
-      input {
-        font-family: "Poppins", Arial, Helvetica, sans-serif;
+      .input-wrapper {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
         margin-top: 5px;
-        height: 50px;
-        width: 100%;
-        background: rgba(56, 182, 255, 0.2);
-        border: none;
-        border-radius: 5px;
-        padding: 12px 10px;
-        font-size: 16px;
-        font-weight: 500;
-        outline: none;
 
-        &:focus {
-          outline: 2px solid #38b6ff;
-          background: #ffffff;
+        input {
+          font-family: "Poppins", Arial, Helvetica, sans-serif;
+          height: 50px;
+          width: 100%;
+          background: rgba(56, 182, 255, 0.2);
+          border: none;
+          border-radius: 5px 0px 0px 5px;
+          padding: 12px 5px 12px 10px;
+          font-size: 16px;
+          font-weight: 500;
+          outline: none;
+
+          &:focus {
+            outline: 2px solid #38b6ff;
+            background: #ffffff;
+          }
+
+          &::placeholder {
+            color: rgba(0, 0, 0, 0.1);
+          }
         }
 
-        &::placeholder {
-          color: rgba(0, 0, 0, 0.1);
+        span {
+          display: flex;
+          align-items: center;
+          background: rgba(56, 182, 255, 0.2);
+          font-weight: 500;
+          height: 50px;
+          border-radius: 0px 5px 5px 0px;
+          padding: 0px 5px;
         }
       }
     }

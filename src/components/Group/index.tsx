@@ -2,12 +2,12 @@ import { StyledGroup } from "./Group.styles";
 import { GroupProps } from "./Group.types";
 import { useState } from "react";
 import Image from "next/image";
+import Cleave from "cleave.js/react";
 
 export default function Group({
   field,
   label,
   months,
-  type,
   tooltip,
   ...props
 }: GroupProps) {
@@ -33,13 +33,21 @@ export default function Group({
         {Array.from({ length: months }, (item, index) => (
           <div key={index}>
             <label htmlFor={`${field}-month-${index}`}>mês {index + 1}</label>
-            <input
-              name={`${field}-month-${index}`}
-              id={`${field}-month-${index}`}
-              type={type}
-              data-index={index}
-              {...props}
-            />
+            <div className="input-wrapper">
+              <Cleave
+                name={`${field}-month-${index}`}
+                id={`${field}-month-${index}`}
+                options={{
+                  numericOnly: true,
+                  delimiter: ",",
+                  delimiterLazyShow: true,
+                  blocks: [2, 2],
+                }}
+                data-index={index}
+                {...props}
+              />
+              <span>%</span>
+            </div>
           </div>
         ))}
       </div>
