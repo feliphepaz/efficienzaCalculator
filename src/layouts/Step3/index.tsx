@@ -24,7 +24,7 @@ export default function Step3({
       } else {
         setValidSteps([false, false, false, false]);
       }
-    }, 100);
+    }, 50);
   }, [totals]);
 
   return (

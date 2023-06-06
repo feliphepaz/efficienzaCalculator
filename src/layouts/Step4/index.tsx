@@ -29,7 +29,7 @@ export default function Step4({
       } else {
         setValidSteps([false, false, false, false]);
       }
-    }, 100);
+    }, 50);
   }, [name, email, tel]);
 
   return (

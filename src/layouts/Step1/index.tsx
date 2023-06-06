@@ -48,7 +48,7 @@ export default function Step1({
       } else {
         setValidSteps([false, false, false, false]);
       }
-    }, 100);
+    }, 50);
   }, [payments]);
 
   return (

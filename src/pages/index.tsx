@@ -3,20 +3,19 @@ import Step1 from "@/layouts/Step1";
 import Step2 from "@/layouts/Step2";
 import Step3 from "@/layouts/Step3";
 import Step4 from "@/layouts/Step4";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useData } from "@/hooks/useData";
 import Result from "@/layouts/Result";
 import Header from "@/layouts/Header";
 import Hero from "@/layouts/Hero";
 import About from "@/layouts/About";
 import Footer from "@/layouts/Footer";
-import Image from "next/image";
 import Arrow from "@/components/Arrow";
 import Settings from "@/components/Settings";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 export default function Home() {
-  const [disclaimer, setDisclaimer] = useState(false);
-
   const {
     payments,
     monthsOfPayment,
@@ -73,6 +72,19 @@ export default function Home() {
     setValidSteps,
   } = useData();
 
+  function createError() {
+    toast.error("Preencha todos os campos!", {
+      position: "bottom-right",
+      autoClose: 3500,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "light",
+    });
+  }
+
   function prevStep() {
     if (step > 1) {
       setStep(step - 1);
@@ -84,11 +96,24 @@ export default function Home() {
   function nextStep() {
     if (validSteps[step - 1]) {
       setStep(step + 1);
-      setDisclaimer(false);
     } else {
-      setDisclaimer(true);
+      createError();
     }
   }
+
+  useEffect(() => {
+    const body = document.querySelector("body");
+    function proceedWithEnter(e: any) {
+      if (e.keyCode === 13) {
+        nextStep();
+      }
+    }
+
+    body?.addEventListener("keydown", proceedWithEnter);
+    return () => {
+      body?.removeEventListener("keydown", proceedWithEnter);
+    };
+  }, [validSteps]);
 
   return (
     <>
@@ -174,11 +199,6 @@ export default function Home() {
               />
             )}
             {step === 5 && <Result payments={payments} totals={totals} />}
-            {disclaimer && (
-              <p className="disclaimer">
-                Você precisa preencher todos os campos!
-              </p>
-            )}
             <nav className="navegation">
               <button className="prev-step btn" onClick={prevStep}>
                 <Arrow />
@@ -196,6 +216,7 @@ export default function Home() {
       </main>
       <About />
       <Footer />
+      <ToastContainer />
     </>
   );
 }

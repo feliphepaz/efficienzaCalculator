@@ -34,7 +34,7 @@ export default function Step2({
       } else {
         setValidSteps([false, false, false, false]);
       }
-    }, 100);
+    }, 50);
   }, [salary]);
 
   return (
