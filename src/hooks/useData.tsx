@@ -6,31 +6,33 @@ export const useData = () => {
   const [payments, setPayments] = useState<PaymentsProps[]>([]);
   const [monthsOfPayment, setMonthsOfPayment] = useState(1);
   const [comissionRates, setComissionRates] = useState<number[]>([]);
-  const [taxRate, setTaxRate] = useState(0);
+  const [taxRate, setTaxRate] = useState<number | any>(null);
   const [nonPayments, setNonPayments] = useState<number[]>([]);
 
   // Salary
   const [salary, setSalary] = useState<SalaryProps | null>(null);
-  const [numberOfSupervisors, setNumberOfSupervisors] = useState(0);
-  const [supervisorSalary, setSupervisorSalary] = useState(0);
-  const [supervisorComission, setSupervisorComission] = useState(0);
-  const [numberOfSellers, setNumberOfSellers] = useState(0);
-  const [sellerSalary, setSellerSalary] = useState(0);
-  const [sellerComission, setSellerComission] = useState(0);
-  const [sales, setSales] = useState(0);
-  const [average, setAverage] = useState(0);
-  const [numberOfDays, setNumberOfDays] = useState(0);
-  const [VTValue, setVTValue] = useState(0);
-  const [VRValue, setVRValue] = useState(0);
-  const [charges, setCharges] = useState(0);
-
-  console.log(salary);
+  const [numberOfSupervisors, setNumberOfSupervisors] = useState<number | any>(
+    null
+  );
+  const [supervisorSalary, setSupervisorSalary] = useState(3000);
+  const [supervisorComission, setSupervisorComission] = useState<number | any>(
+    null
+  );
+  const [numberOfSellers, setNumberOfSellers] = useState<number | any>(null);
+  const [sellerSalary, setSellerSalary] = useState(965);
+  const [sellerComission, setSellerComission] = useState<number | any>(null);
+  const [sales, setSales] = useState<number | any>(null);
+  const [average, setAverage] = useState<number | any>(null);
+  const [numberOfDays, setNumberOfDays] = useState<number | any>(null);
+  const [VTValue, setVTValue] = useState(6);
+  const [VRValue, setVRValue] = useState(15);
+  const [charges, setCharges] = useState<number | any>(null);
 
   // Totals
   const [totals, setTotals] = useState<TotalsProps | null>(null);
-  const [media, setMedia] = useState(0);
-  const [accountant, setAccountant] = useState(0);
-  const [telephone, setTelephone] = useState(0);
+  const [media, setMedia] = useState<number | any>(null);
+  const [accountant, setAccountant] = useState<number | any>(null);
+  const [telephone, setTelephone] = useState<number | any>(null);
 
   // Steps
   const [step, setStep] = useState(1);
@@ -174,24 +176,41 @@ export const useData = () => {
     setMonthsOfPayment,
     comissionRates,
     setComissionRates,
+    taxRate,
     setTaxRate,
+    nonPayments,
     setNonPayments,
     salary,
+    numberOfSupervisors,
     setNumberOfSupervisors,
+    supervisorSalary,
     setSupervisorSalary,
+    supervisorComission,
     setSupervisorComission,
+    numberOfSellers,
     setNumberOfSellers,
+    sellerSalary,
     setSellerSalary,
+    sellerComission,
     setSellerComission,
+    sales,
     setSales,
+    average,
     setAverage,
+    numberOfDays,
     setNumberOfDays,
+    VTValue,
     setVTValue,
+    VRValue,
     setVRValue,
+    charges,
     setCharges,
     totals,
+    media,
     setMedia,
+    accountant,
     setAccountant,
+    telephone,
     setTelephone,
     step,
     setStep,

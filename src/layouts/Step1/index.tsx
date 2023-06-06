@@ -8,8 +8,11 @@ export default function Step1({
   payments,
   monthsOfPayment,
   setMonthsOfPayment,
+  comissionRates,
   setComissionRates,
+  taxRate,
   setTaxRate,
+  nonPayments,
   setNonPayments,
   setValidSteps,
 }: Step1Props) {
@@ -38,12 +41,14 @@ export default function Step1({
   useEffect(() => {
     const fields = step1.current?.querySelectorAll("input, select");
     const fieldsArray = fields ? Array.from(fields) : [];
-    const emptyFields = fieldsArray.filter((field: any) => field.value === "");
-    if (emptyFields.length === 0) {
-      setValidSteps([true, false, false]);
-    } else {
-      setValidSteps([false, false, false]);
-    }
+    setTimeout(() => {
+      const emptyFields = fieldsArray.filter((field: any) => !field.value);
+      if (emptyFields.length === 0) {
+        setValidSteps([true, false, false]);
+      } else {
+        setValidSteps([false, false, false]);
+      }
+    }, 100);
   }, [payments]);
 
   return (
@@ -58,6 +63,7 @@ export default function Step1({
           label="Serão quantos meses de pagamento?"
           options={[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]}
           tooltip="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum volutpat porttitor dolor, eu posuere ex vitae. Ut et erat tincidunt"
+          value={monthsOfPayment}
           onChange={({ target }) => setMonthsOfPayment(+target.value)}
         />
         <Input
@@ -65,6 +71,8 @@ export default function Step1({
           label="Qual será a taxa de imposto?"
           type="percentage"
           tooltip="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum volutpat porttitor dolor, eu posuere ex vitae. Ut et erat tincidunt"
+          placeholder="Digite a taxa"
+          value={taxRate}
           onChange={({ target }) => setTaxRate(+target.value.replace(",", "."))}
         />
         <Group
@@ -72,6 +80,8 @@ export default function Step1({
           label="Taxas de comissão"
           months={monthsOfPayment}
           tooltip="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum volutpat porttitor dolor, eu posuere ex vitae. Ut et erat tincidunt"
+          data={comissionRates}
+          placeholder="Digite a taxa"
           onChange={({ target }) =>
             setComissionRatesFields(
               +target.value.replace(",", "."),
@@ -84,6 +94,8 @@ export default function Step1({
           label="Taxas de inadimplência"
           months={monthsOfPayment}
           tooltip="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum volutpat porttitor dolor, eu posuere ex vitae. Ut et erat tincidunt"
+          data={nonPayments}
+          placeholder="Digite a taxa"
           onChange={({ target }) =>
             setNonPaymentsFields(
               +target.value.replace(",", "."),

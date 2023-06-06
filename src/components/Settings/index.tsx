@@ -6,9 +6,13 @@ import Input from "../Input";
 import { SettingsProps } from "./Settings.types";
 
 export default function Settings({
+  supervisorSalary,
   setSupervisorSalary,
+  sellerSalary,
   setSellerSalary,
+  VTValue,
   setVTValue,
+  VRValue,
   setVRValue,
 }: SettingsProps) {
   const [showSettings, setShowSettings] = useState(false);
@@ -44,6 +48,7 @@ export default function Settings({
               label="Qual será o salário de um supervisor?"
               type="currency"
               tooltip="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum volutpat porttitor dolor, eu posuere ex vitae. Ut et erat tincidunt"
+              value={supervisorSalary}
               onChange={({ target }) =>
                 setSupervisorSalary(+(target as any).rawValue)
               }
@@ -65,6 +70,7 @@ export default function Settings({
               label="Qual será o salário de um vendedor?"
               type="currency"
               tooltip="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum volutpat porttitor dolor, eu posuere ex vitae. Ut et erat tincidunt"
+              value={sellerSalary}
               onChange={({ target }) =>
                 setSellerSalary(+(target as any).rawValue)
               }
@@ -86,6 +92,7 @@ export default function Settings({
               label="Qual será o valor do VR?"
               type="currency"
               tooltip="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum volutpat porttitor dolor, eu posuere ex vitae. Ut et erat tincidunt"
+              value={VRValue}
               onChange={({ target }) => setVRValue(+(target as any).rawValue)}
             />
           )}
@@ -105,6 +112,7 @@ export default function Settings({
               label="Qual será o valor do VT?"
               type="currency"
               tooltip="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum volutpat porttitor dolor, eu posuere ex vitae. Ut et erat tincidunt"
+              value={VTValue}
               onChange={({ target }) => setVTValue(+(target as any).rawValue)}
             />
           )}

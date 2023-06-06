@@ -4,13 +4,21 @@ import { Step2Props } from "./Step2.types";
 
 export default function Step2({
   salary,
+  numberOfSupervisors,
   setNumberOfSupervisors,
+  supervisorComission,
   setSupervisorComission,
+  numberOfSellers,
   setNumberOfSellers,
+  sellerComission,
   setSellerComission,
+  sales,
   setSales,
+  average,
   setAverage,
+  numberOfDays,
   setNumberOfDays,
+  charges,
   setCharges,
   setValidSteps,
 }: Step2Props) {
@@ -19,12 +27,14 @@ export default function Step2({
   useEffect(() => {
     const fields = step2.current?.querySelectorAll("input");
     const fieldsArray = fields ? Array.from(fields) : [];
-    const emptyFields = fieldsArray.filter((field: any) => field.value === "");
-    if (emptyFields.length === 0) {
-      setValidSteps([true, true, false]);
-    } else {
-      setValidSteps([false, false, false]);
-    }
+    setTimeout(() => {
+      const emptyFields = fieldsArray.filter((field: any) => !field.value);
+      if (emptyFields.length === 0) {
+        setValidSteps([true, true, false]);
+      } else {
+        setValidSteps([false, false, false]);
+      }
+    }, 100);
   }, [salary]);
 
   return (
@@ -39,6 +49,8 @@ export default function Step2({
           label="Serão quantos supervisores?"
           type="quantity"
           tooltip="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum volutpat porttitor dolor, eu posuere ex vitae. Ut et erat tincidunt"
+          placeholder="Digite a quantidade"
+          value={numberOfSupervisors}
           onChange={({ target }) => setNumberOfSupervisors(+target.value)}
         />
         <Input
@@ -46,6 +58,8 @@ export default function Step2({
           label="Qual será a comissão de um supervisor?"
           type="percentage"
           tooltip="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum volutpat porttitor dolor, eu posuere ex vitae. Ut et erat tincidunt"
+          placeholder="Digite a comissão"
+          value={supervisorComission}
           onChange={({ target }) =>
             setSupervisorComission(+target.value.replace(",", "."))
           }
@@ -55,6 +69,8 @@ export default function Step2({
           label="Serão quantos vendedores?"
           type="quantity"
           tooltip="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum volutpat porttitor dolor, eu posuere ex vitae. Ut et erat tincidunt"
+          placeholder="Digite a quantidade"
+          value={numberOfSellers}
           onChange={({ target }) => setNumberOfSellers(+target.value)}
         />
         <Input
@@ -62,6 +78,8 @@ export default function Step2({
           label="Qual será a comissão de um vendedor?"
           type="percentage"
           tooltip="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum volutpat porttitor dolor, eu posuere ex vitae. Ut et erat tincidunt"
+          placeholder="Digite a comissão"
+          value={sellerComission}
           onChange={({ target }) =>
             setSellerComission(+target.value.replace(",", "."))
           }
@@ -71,6 +89,8 @@ export default function Step2({
           label="Serão quantas vendas de cotas?"
           type="quantity"
           tooltip="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum volutpat porttitor dolor, eu posuere ex vitae. Ut et erat tincidunt"
+          placeholder="Digite a quantidade"
+          value={sales}
           onChange={({ target }) => setSales(+target.value)}
         />
         <Input
@@ -78,6 +98,8 @@ export default function Step2({
           label="Qual será a média de crédito?"
           type="currency"
           tooltip="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum volutpat porttitor dolor, eu posuere ex vitae. Ut et erat tincidunt"
+          placeholder="Digite a média"
+          value={average}
           onChange={({ target }) => setAverage(+(target as any).rawValue)}
         />
         <Input
@@ -85,6 +107,8 @@ export default function Step2({
           label="Serão quantos dias trabalhados?"
           type="quantity"
           tooltip="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum volutpat porttitor dolor, eu posuere ex vitae. Ut et erat tincidunt"
+          placeholder="Digite a quantidade"
+          value={numberOfDays}
           onChange={({ target }) => setNumberOfDays(+target.value)}
         />
         <Input
@@ -92,6 +116,8 @@ export default function Step2({
           label="Qual será a taxa de encargos?"
           type="percentage"
           tooltip="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum volutpat porttitor dolor, eu posuere ex vitae. Ut et erat tincidunt"
+          placeholder="Digite a taxa"
+          value={charges}
           onChange={({ target }) => setCharges(+target.value.replace(",", "."))}
         />
       </form>

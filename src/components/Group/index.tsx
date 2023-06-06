@@ -8,6 +8,7 @@ export default function Group({
   field,
   label,
   months,
+  data,
   tooltip,
   ...props
 }: GroupProps) {
@@ -44,6 +45,7 @@ export default function Group({
                   blocks: [2, 2],
                 }}
                 data-index={index}
+                value={data[index]}
                 {...props}
               />
               <span>%</span>

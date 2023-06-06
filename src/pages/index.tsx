@@ -20,25 +20,43 @@ export default function Home() {
     payments,
     monthsOfPayment,
     setMonthsOfPayment,
+    comissionRates,
     setComissionRates,
+    taxRate,
     setTaxRate,
+    nonPayments,
     setNonPayments,
     salary,
+    numberOfSupervisors,
     setNumberOfSupervisors,
+    supervisorSalary,
     setSupervisorSalary,
+    supervisorComission,
     setSupervisorComission,
+    numberOfSellers,
     setNumberOfSellers,
+    sellerSalary,
     setSellerSalary,
+    sellerComission,
     setSellerComission,
+    sales,
     setSales,
+    average,
     setAverage,
+    numberOfDays,
     setNumberOfDays,
+    VTValue,
     setVTValue,
+    VRValue,
     setVRValue,
+    charges,
     setCharges,
     totals,
+    media,
     setMedia,
+    accountant,
     setAccountant,
+    telephone,
     setTelephone,
     step,
     setStep,
@@ -71,9 +89,13 @@ export default function Home() {
         <div className="container">
           <div className="box">
             <Settings
+              supervisorSalary={supervisorSalary}
               setSupervisorSalary={setSupervisorSalary}
+              sellerSalary={sellerSalary}
               setSellerSalary={setSellerSalary}
+              VTValue={VTValue}
               setVTValue={setVTValue}
+              VRValue={VRValue}
               setVRValue={setVRValue}
             />
             <Breadcrumb
@@ -85,8 +107,11 @@ export default function Home() {
                 payments={payments}
                 monthsOfPayment={monthsOfPayment}
                 setMonthsOfPayment={setMonthsOfPayment}
+                comissionRates={comissionRates}
                 setComissionRates={setComissionRates}
+                taxRate={taxRate}
                 setTaxRate={setTaxRate}
+                nonPayments={nonPayments}
                 setNonPayments={setNonPayments}
                 setValidSteps={setValidSteps}
               />
@@ -94,13 +119,21 @@ export default function Home() {
             {step === 2 && (
               <Step2
                 salary={salary}
+                numberOfSupervisors={numberOfSupervisors}
                 setNumberOfSupervisors={setNumberOfSupervisors}
+                numberOfSellers={numberOfSellers}
                 setNumberOfSellers={setNumberOfSellers}
+                supervisorComission={supervisorComission}
                 setSupervisorComission={setSupervisorComission}
+                sellerComission={sellerComission}
                 setSellerComission={setSellerComission}
+                sales={sales}
                 setSales={setSales}
+                average={average}
                 setAverage={setAverage}
+                numberOfDays={numberOfDays}
                 setNumberOfDays={setNumberOfDays}
+                charges={charges}
                 setCharges={setCharges}
                 setValidSteps={setValidSteps}
               />
@@ -108,8 +141,11 @@ export default function Home() {
             {step === 3 && (
               <Step3
                 totals={totals}
+                media={media}
                 setMedia={setMedia}
+                accountant={accountant}
                 setAccountant={setAccountant}
+                telephone={telephone}
                 setTelephone={setTelephone}
                 setValidSteps={setValidSteps}
               />
