@@ -34,9 +34,15 @@ export const useData = () => {
   const [accountant, setAccountant] = useState<number | any>(null);
   const [telephone, setTelephone] = useState<number | any>(null);
 
+  // User
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [tel, setTel] = useState("");
+  const [howMeet, setHowMeet] = useState("");
+
   // Steps
   const [step, setStep] = useState(1);
-  const [validSteps, setValidSteps] = useState([false, false, false]);
+  const [validSteps, setValidSteps] = useState([false, false, false, false]);
 
   useEffect(() => {
     // Payments
@@ -212,6 +218,14 @@ export const useData = () => {
     setAccountant,
     telephone,
     setTelephone,
+    name,
+    setName,
+    email,
+    setEmail,
+    tel,
+    setTel,
+    howMeet,
+    setHowMeet,
     step,
     setStep,
     validSteps,

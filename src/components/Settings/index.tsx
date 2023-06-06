@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { StyledSettings } from "./Settings.styles";
 import Image from "next/image";
 import Switch from "../Switch";
@@ -20,6 +20,26 @@ export default function Settings({
   const [disableSellerSalary, setDisableSellerSalary] = useState(false);
   const [disableVRValue, setDisableVRValue] = useState(false);
   const [disableVTValue, setDisableVTValue] = useState(false);
+
+  useEffect(() => {
+    if (!disableSupervisorSalary) {
+      setSupervisorSalary(3000);
+    }
+    if (!disableSellerSalary) {
+      setSellerSalary(965);
+    }
+    if (!disableVRValue) {
+      setVRValue(15);
+    }
+    if (!disableVTValue) {
+      setVTValue(6);
+    }
+  }, [
+    disableSupervisorSalary,
+    disableSellerSalary,
+    disableVRValue,
+    disableVTValue,
+  ]);
 
   return (
     <StyledSettings>

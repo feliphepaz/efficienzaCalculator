@@ -30,9 +30,9 @@ export default function Step2({
     setTimeout(() => {
       const emptyFields = fieldsArray.filter((field: any) => !field.value);
       if (emptyFields.length === 0) {
-        setValidSteps([true, true, false]);
+        setValidSteps([true, true, false, false]);
       } else {
-        setValidSteps([false, false, false]);
+        setValidSteps([false, false, false, false]);
       }
     }, 100);
   }, [salary]);

@@ -67,9 +67,13 @@ export const StyledInput = styled.div<StyledInputProps>`
       background: rgba(56, 182, 255, 0.2);
       border: none;
       border-radius: ${(props) =>
-        props.type === "percentage" ? "5px 0px 0px 5px" : "0px 5px 5px 0px"};
-      padding: ${(props) =>
         props.type === "percentage"
+          ? "5px 0px 0px 5px"
+          : props.type === "text"
+          ? "5px"
+          : "0px 5px 5px 0px"};
+      padding: ${(props) =>
+        props.type === "percentage" || props.type === "text"
           ? "12px 5px 12px 10px"
           : "12px 10px 12px 5px"};
       font-size: 16px;

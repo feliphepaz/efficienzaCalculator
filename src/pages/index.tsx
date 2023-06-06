@@ -2,6 +2,7 @@ import Breadcrumb from "@/components/Breadcrumb";
 import Step1 from "@/layouts/Step1";
 import Step2 from "@/layouts/Step2";
 import Step3 from "@/layouts/Step3";
+import Step4 from "@/layouts/Step4";
 import { useState } from "react";
 import { useData } from "@/hooks/useData";
 import Result from "@/layouts/Result";
@@ -58,6 +59,14 @@ export default function Home() {
     setAccountant,
     telephone,
     setTelephone,
+    name,
+    setName,
+    email,
+    setEmail,
+    tel,
+    setTel,
+    howMeet,
+    setHowMeet,
     step,
     setStep,
     validSteps,
@@ -99,7 +108,7 @@ export default function Home() {
               setVRValue={setVRValue}
             />
             <Breadcrumb
-              steps={["Etapa 1", "Etapa 2", "Etapa 3", "Resultado"]}
+              steps={["Etapa 1", "Etapa 2", "Etapa 3", "Etapa 4", "Resultado"]}
               stepActive={step}
             />
             {step === 1 && (
@@ -150,7 +159,21 @@ export default function Home() {
                 setValidSteps={setValidSteps}
               />
             )}
-            {step === 4 && <Result payments={payments} totals={totals} />}
+            {step === 4 && (
+              <Step4
+                name={name}
+                setName={setName}
+                email={email}
+                setEmail={setEmail}
+                tel={tel}
+                setTel={setTel}
+                howMeet={howMeet}
+                setHowMeet={setHowMeet}
+                step={step}
+                setValidSteps={setValidSteps}
+              />
+            )}
+            {step === 5 && <Result payments={payments} totals={totals} />}
             {disclaimer && (
               <p className="disclaimer">
                 Você precisa preencher todos os campos!
@@ -161,10 +184,10 @@ export default function Home() {
                 <Arrow />
                 <span>Voltar</span>
               </button>
-              {step !== 4 && (
+              {step !== 5 && (
                 <button className="next-step btn" onClick={nextStep}>
-                  <span>{step === 3 ? "Ver resultado" : "Avançar"}</span>
-                  <Arrow />
+                  <span>{step === 4 ? "Ver resultado" : "Avançar"}</span>
+                  {step !== 4 && <Arrow />}
                 </button>
               )}
             </nav>

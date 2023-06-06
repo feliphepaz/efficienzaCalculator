@@ -44,9 +44,9 @@ export default function Step1({
     setTimeout(() => {
       const emptyFields = fieldsArray.filter((field: any) => !field.value);
       if (emptyFields.length === 0) {
-        setValidSteps([true, false, false]);
+        setValidSteps([true, false, false, false]);
       } else {
-        setValidSteps([false, false, false]);
+        setValidSteps([false, false, false, false]);
       }
     }, 100);
   }, [payments]);
@@ -54,8 +54,8 @@ export default function Step1({
   return (
     <>
       <p className="instruction">
-        Adicione agora todas as taxas que a administradora possui e o que será
-        repassado
+        Primeiramente, adicione todas as taxas que a administradora possui e o
+        que será repassado
       </p>
       <form ref={step1}>
         <Select

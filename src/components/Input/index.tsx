@@ -17,17 +17,19 @@ export default function Input({
     <StyledInput className="field-input" type={type}>
       <div className="label-wrapper">
         <label htmlFor={field}>{label}</label>
-        <div className="tooltip">
-          <Image
-            onMouseOver={() => setShowTooltip(true)}
-            onMouseOut={() => setShowTooltip(false)}
-            src={"/tooltip.svg"}
-            alt="Tooltip"
-            width={15}
-            height={15}
-          />
-          <p className={showTooltip ? "active" : ""}>{tooltip}</p>
-        </div>
+        {tooltip && (
+          <div className="tooltip">
+            <Image
+              onMouseOver={() => setShowTooltip(true)}
+              onMouseOut={() => setShowTooltip(false)}
+              src={"/tooltip.svg"}
+              alt="Tooltip"
+              width={15}
+              height={15}
+            />
+            <p className={showTooltip ? "active" : ""}>{tooltip}</p>
+          </div>
+        )}
       </div>
       {type === "currency" && (
         <div className="input-wrapper">
@@ -71,6 +73,11 @@ export default function Input({
             }}
             {...props}
           />
+        </div>
+      )}
+      {type === "text" && (
+        <div className="input-wrapper">
+          <Cleave name={field} id={field} options={{}} {...props} />
         </div>
       )}
     </StyledInput>

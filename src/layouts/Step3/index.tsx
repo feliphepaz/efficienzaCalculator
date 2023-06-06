@@ -20,9 +20,9 @@ export default function Step3({
     setTimeout(() => {
       const emptyFields = fieldsArray.filter((field: any) => !field.value);
       if (emptyFields.length === 0) {
-        setValidSteps([true, true, true]);
+        setValidSteps([true, true, true, false]);
       } else {
-        setValidSteps([false, false, false]);
+        setValidSteps([false, false, false, false]);
       }
     }, 100);
   }, [totals]);

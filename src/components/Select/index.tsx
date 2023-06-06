@@ -16,17 +16,19 @@ export default function Select({
     <StyledSelect className="field-select">
       <div className="label-wrapper">
         <label htmlFor={field}>{label}</label>
-        <div className="tooltip">
-          <Image
-            onMouseOver={() => setShowTooltip(true)}
-            onMouseOut={() => setShowTooltip(false)}
-            src={"/tooltip.svg"}
-            alt="Tooltip"
-            width={15}
-            height={15}
-          />
-          <p className={showTooltip ? "active" : ""}>{tooltip}</p>
-        </div>
+        {tooltip && (
+          <div className="tooltip">
+            <Image
+              onMouseOver={() => setShowTooltip(true)}
+              onMouseOut={() => setShowTooltip(false)}
+              src={"/tooltip.svg"}
+              alt="Tooltip"
+              width={15}
+              height={15}
+            />
+            <p className={showTooltip ? "active" : ""}>{tooltip}</p>
+          </div>
+        )}
       </div>
       <select name={field} id={field} {...props}>
         {options.map((option, index) => (

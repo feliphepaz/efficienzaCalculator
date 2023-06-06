@@ -79,6 +79,30 @@
   transform: rotate(-180deg);
 }
 
+.newsletter {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.newsletter span {
+  font-weight: 500;
+}
+
+.privacy {
+  margin-top: 40px;
+  font-size: 12px;
+}
+
+.privacy a {
+  text-decoration: none;
+  color: #ff6242;
+}
+
+.privacy a:hover {
+  text-decoration: underline;
+}
+
 @keyframes showModal {
   0% {
     opacity: 0;
