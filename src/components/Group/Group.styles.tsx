@@ -56,12 +56,16 @@ export const StyledGroup = styled.section`
   .group-fields {
     margin-top: 5px;
     display: flex;
-    gap: 10px;
+    flex-wrap: wrap;
+    gap: 15px 10px;
 
     div {
       display: flex;
       flex-direction: column;
-      width: 100%;
+      width: 130px;
+      @media (max-width: 530px) {
+        width: 100%;
+      }
 
       label {
         font-weight: 500;

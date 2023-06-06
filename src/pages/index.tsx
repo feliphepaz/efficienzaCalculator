@@ -135,7 +135,7 @@ export default function Home() {
               setVRValue={setVRValue}
             />
             <Breadcrumb
-              steps={["Etapa 1", "Etapa 2", "Etapa 3", "Etapa 4", "Resultado"]}
+              steps={["Taxas", "Equipe", "Verba", "Dados", "Resultado"]}
               stepActive={step}
             />
             {step === 1 && (

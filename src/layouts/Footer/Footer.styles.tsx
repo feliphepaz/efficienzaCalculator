@@ -11,6 +11,14 @@ export const StyledFooter = styled.footer`
 
     small {
       font-size: 12px;
+      line-height: 150%;
+    }
+  }
+
+  @media (max-width: 470px) {
+    .container {
+      flex-direction: column;
+      align-items: flex-start;
     }
   }
 `;

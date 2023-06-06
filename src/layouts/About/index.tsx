@@ -20,7 +20,7 @@ export default function About() {
             equipe de vendas e terceirizar atividades para aumentar a eficiência
             operacional.
           </p>
-          <a href="#">
+          <a href="https://efficienzaconsultoria.com/" target="_blank">
             Conheça nosso site{" "}
             <Image src={"/arrow-link.svg"} alt="Seta" width={21} height={14} />
           </a>

@@ -40,6 +40,8 @@
 .navegation {
   display: flex;
   margin-top: 40px;
+  flex-wrap: wrap;
+  gap: 20px;
 }
 
 .btn {
@@ -86,11 +88,13 @@
 
 .newsletter span {
   font-weight: 500;
+  line-height: 130%;
 }
 
 .privacy {
   margin-top: 40px;
   font-size: 12px;
+  line-height: 150%;
 }
 
 .privacy a {
@@ -117,5 +121,21 @@
   100% {
     opacity: 1;
     transform: translate3d(0px, 0px, 0px);
+  }
+}
+
+@media (max-width: 840px) {
+  .tool .box form {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .tool .box {
+    padding: 20px;
+  }
+
+  .navegation .btn {
+    width: 100%;
   }
 }

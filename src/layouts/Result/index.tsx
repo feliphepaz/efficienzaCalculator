@@ -52,9 +52,7 @@ export default function Result({ payments, salary, totals }: ResultProps) {
                   )
                 )}
                 <li>
-                  <span className="payment-label">
-                    Total custo equipe consórcio
-                  </span>
+                  <span className="payment-label">Custo total</span>
                   <span className="payment-value">
                     - {totals && formatter.format(totals.total)}
                   </span>

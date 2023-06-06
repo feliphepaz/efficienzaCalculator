@@ -59,7 +59,9 @@ export const StyledBreadcrumb = styled.section`
     }
   }
 
-  @media (max-width: 460px) {
+  @media (max-width: 840px) {
+    padding: 20px;
+
     hr {
       display: none;
     }
@@ -67,7 +69,33 @@ export const StyledBreadcrumb = styled.section`
     ul {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
-      gap: 30px;
+      gap: 20px;
+
+      li {
+        border: 4px solid #38b6ff;
+        border-radius: 40px;
+        padding: 20px;
+      }
+    }
+  }
+
+  @media (max-width: 540px) {
+    padding: 10px;
+
+    ul {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+
+      li {
+        border-radius: 30px;
+        padding: 10px;
+      }
+    }
+  }
+
+  @media (max-width: 360px) {
+    ul {
+      grid-template-columns: 1fr;
     }
   }
 `;
