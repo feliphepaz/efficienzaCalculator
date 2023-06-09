@@ -41,6 +41,7 @@ export const useData = () => {
 
   // Totals
   const [totals, setTotals] = useState<TotalsProps | null>(null);
+  const [totalWithNoSales, setTotalWithNoSales] = useState<number | any>(0);
 
   // User
   const [name, setName] = useState("");
@@ -235,6 +236,8 @@ export const useData = () => {
     setChargesRaw,
     setCharges,
     totals,
+    totalWithNoSales,
+    setTotalWithNoSales,
     media,
     setMedia,
     accountant,

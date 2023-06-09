@@ -58,6 +58,8 @@ export default function Home() {
     setChargesRaw,
     setCharges,
     totals,
+    totalWithNoSales,
+    setTotalWithNoSales,
     media,
     setMedia,
     accountant,
@@ -200,7 +202,13 @@ export default function Home() {
               />
             )} */}
             {step === 4 && (
-              <Result payments={payments} salary={salary} totals={totals} />
+              <Result
+                payments={payments}
+                salary={salary}
+                totals={totals}
+                totalWithNoSales={totalWithNoSales}
+                setTotalWithNoSales={setTotalWithNoSales}
+              />
             )}
             <nav
               style={

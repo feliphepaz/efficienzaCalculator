@@ -1,8 +1,15 @@
+import { useEffect } from "react";
 import { StyledResult } from "./Result.styles";
 import { ResultProps } from "./Result.types";
 import PDF from "@/components/PDF";
 
-export default function Result({ payments, salary, totals }: ResultProps) {
+export default function Result({
+  payments,
+  salary,
+  totals,
+  totalWithNoSales,
+  setTotalWithNoSales,
+}: ResultProps) {
   const cumulativeValues = payments.map((value, index) =>
     payments
       .slice(0, index + 1)
@@ -19,7 +26,9 @@ export default function Result({ payments, salary, totals }: ResultProps) {
       <div className="head">
         <span>Custo total</span>
         <h2>{totals && formatter.format(totals.total)}</h2>
-        <p>Caso não haja venda: R$ 27.852,00</p>
+        <p>
+          Caso não haja venda: {totals && formatter.format(totalWithNoSales)}
+        </p>
       </div>
       <div className="costs">
         <h2>Demonstrativo de custos</h2>
@@ -95,7 +104,13 @@ export default function Result({ payments, salary, totals }: ResultProps) {
           .
         </p>
       </div>
-      <PDF payments={payments} />
+      <PDF
+        payments={payments}
+        salary={salary}
+        totals={totals}
+        totalWithNoSales={totalWithNoSales}
+        setTotalWithNoSales={setTotalWithNoSales}
+      />
     </StyledResult>
   );
 }
