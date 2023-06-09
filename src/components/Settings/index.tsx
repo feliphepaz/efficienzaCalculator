@@ -109,7 +109,7 @@ export default function Settings({
           {disableVRValue && (
             <Input
               field="vr-value"
-              label="Qual será o valor do VR?"
+              label="Qual será o valor do vale refeição?"
               type="currency"
               tooltip="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum volutpat porttitor dolor, eu posuere ex vitae. Ut et erat tincidunt"
               value={VRValue}
@@ -129,7 +129,7 @@ export default function Settings({
           {disableVTValue && (
             <Input
               field="vt-value"
-              label="Qual será o valor do VT?"
+              label="Qual será o valor do vale transporte?"
               type="currency"
               tooltip="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum volutpat porttitor dolor, eu posuere ex vitae. Ut et erat tincidunt"
               value={VTValue}

@@ -1,5 +1,6 @@
 import { StyledResult } from "./Result.styles";
 import { ResultProps } from "./Result.types";
+import PDF from "@/components/PDF";
 
 export default function Result({ payments, salary, totals }: ResultProps) {
   const cumulativeValues = payments.map((value, index) =>
@@ -94,6 +95,7 @@ export default function Result({ payments, salary, totals }: ResultProps) {
           .
         </p>
       </div>
+      <PDF payments={payments} />
     </StyledResult>
   );
 }

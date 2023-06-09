@@ -34,11 +34,13 @@ export const useData = () => {
   const [chargesRaw, setChargesRaw] = useState("");
   const [charges, setCharges] = useState<number | any>(null);
 
-  // Totals
-  const [totals, setTotals] = useState<TotalsProps | null>(null);
+  // Budget
   const [media, setMedia] = useState<number | any>(null);
   const [accountant, setAccountant] = useState<number | any>(null);
   const [telephone, setTelephone] = useState<number | any>(null);
+
+  // Totals
+  const [totals, setTotals] = useState<TotalsProps | null>(null);
 
   // User
   const [name, setName] = useState("");
@@ -119,23 +121,29 @@ export const useData = () => {
       supervisorTotalSalary:
         supervisorSalary * numberOfSupervisors +
         (sales * average * supervisorComission) / 100,
-      sellerTotalSalary: (sales * average * sellerComission) / 100,
+      sellerTotalSalary:
+        sellerSalary * numberOfSellers +
+        (sales * average * sellerComission) / 100,
       supAndSelTotalSalary:
         supervisorSalary * numberOfSupervisors +
         (sales * average * supervisorComission) / 100 +
+        sellerSalary * numberOfSellers +
         (sales * average * sellerComission) / 100,
       laborBenefits:
         ((supervisorSalary * numberOfSupervisors +
           (sales * average * supervisorComission) / 100 +
+          sellerSalary * numberOfSellers +
           (sales * average * sellerComission) / 100) *
           charges) /
         100,
       salaryAndCharges:
         supervisorSalary * numberOfSupervisors +
         (sales * average * supervisorComission) / 100 +
+        sellerSalary * numberOfSellers +
         (sales * average * sellerComission) / 100 +
         ((supervisorSalary * numberOfSupervisors +
           (sales * average * supervisorComission) / 100 +
+          sellerSalary * numberOfSellers +
           (sales * average * sellerComission) / 100) *
           charges) /
           100,
@@ -148,9 +156,11 @@ export const useData = () => {
       total:
         supervisorSalary * numberOfSupervisors +
         (sales * average * supervisorComission) / 100 +
+        sellerSalary * numberOfSellers +
         (sales * average * sellerComission) / 100 +
         ((supervisorSalary * numberOfSupervisors +
           (sales * average * supervisorComission) / 100 +
+          sellerSalary * numberOfSellers +
           (sales * average * sellerComission) / 100) *
           charges) /
           100 +
