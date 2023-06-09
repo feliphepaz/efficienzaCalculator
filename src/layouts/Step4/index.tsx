@@ -21,16 +21,17 @@ export default function Step4({
 
   useEffect(() => {
     const fields = step4.current?.querySelectorAll("input");
-    const fieldsArray = fields ? Array.from(fields) : [];
-    setTimeout(() => {
+    const submitBtn = document.querySelector(".next-step");
+    submitBtn?.addEventListener("click", () => {
+      const fieldsArray = fields ? Array.from(fields) : [];
       const emptyFields = fieldsArray.filter((field: any) => !field.value);
       if (emptyFields.length === 0) {
         setValidSteps([true, true, true, true]);
       } else {
         setValidSteps([false, false, false, false]);
       }
-    }, 50);
-  }, [name, email, tel]);
+    });
+  }, []);
 
   return (
     <>
@@ -38,7 +39,7 @@ export default function Step4({
         Por último, gostaríamos de saber mais sobre você! Preencha os dados com
         as suas informações
       </p>
-      <form ref={step4} autoComplete="off">
+      <form ref={step4}>
         <Input
           field="name"
           label="Nome"

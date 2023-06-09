@@ -66,16 +66,17 @@ export default function Step1({
 
   useEffect(() => {
     const fields = step1.current?.querySelectorAll("input, select");
-    const fieldsArray = fields ? Array.from(fields) : [];
-    setTimeout(() => {
+    const submitBtn = document.querySelector(".next-step");
+    submitBtn?.addEventListener("click", () => {
+      const fieldsArray = fields ? Array.from(fields) : [];
       const emptyFields = fieldsArray.filter((field: any) => !field.value);
       if (emptyFields.length === 0) {
         setValidSteps([true, false, false, false]);
       } else {
         setValidSteps([false, false, false, false]);
       }
-    }, 50);
-  }, [payments]);
+    });
+  }, []);
 
   return (
     <>
@@ -83,7 +84,7 @@ export default function Step1({
         Primeiramente, adicione todas as taxas que a administradora possui e o
         que será repassado
       </p>
-      <form ref={step1} autoComplete="off">
+      <form ref={step1}>
         <Select
           field="months-of-payment"
           label="Serão quantos meses de pagamento?"

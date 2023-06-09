@@ -29,16 +29,17 @@ export default function Step2({
 
   useEffect(() => {
     const fields = step2.current?.querySelectorAll("input");
-    const fieldsArray = fields ? Array.from(fields) : [];
-    setTimeout(() => {
+    const submitBtn = document.querySelector(".next-step");
+    submitBtn?.addEventListener("click", () => {
+      const fieldsArray = fields ? Array.from(fields) : [];
       const emptyFields = fieldsArray.filter((field: any) => !field.value);
       if (emptyFields.length === 0) {
         setValidSteps([true, true, false, false]);
       } else {
         setValidSteps([false, false, false, false]);
       }
-    }, 50);
-  }, [salary]);
+    });
+  }, []);
 
   return (
     <>
@@ -46,7 +47,7 @@ export default function Step2({
         Nos conte sobre a quantidade de funcionários que a sua equipe terá e
         outras informações
       </p>
-      <form ref={step2} autoComplete="off">
+      <form ref={step2}>
         <Input
           field="number-of-supervisors"
           label="Serão quantos supervisores?"

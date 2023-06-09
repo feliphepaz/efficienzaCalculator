@@ -16,16 +16,17 @@ export default function Step3({
 
   useEffect(() => {
     const fields = step3.current?.querySelectorAll("input");
-    const fieldsArray = fields ? Array.from(fields) : [];
-    setTimeout(() => {
+    const submitBtn = document.querySelector(".next-step");
+    submitBtn?.addEventListener("click", () => {
+      const fieldsArray = fields ? Array.from(fields) : [];
       const emptyFields = fieldsArray.filter((field: any) => !field.value);
       if (emptyFields.length === 0) {
         setValidSteps([true, true, true, false]);
       } else {
         setValidSteps([false, false, false, false]);
       }
-    }, 50);
-  }, [totals]);
+    });
+  }, []);
 
   return (
     <>
@@ -33,7 +34,7 @@ export default function Step3({
         Aqui você deve preencher os campos com todos os gastos referente a
         anúncios, serviços, etc
       </p>
-      <form ref={step3} autoComplete="off">
+      <form ref={step3}>
         <Input
           field="media"
           label="Quanto será utilizado de verba para mídia?"
