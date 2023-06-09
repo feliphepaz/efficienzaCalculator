@@ -47,6 +47,8 @@ export const StyledResult = styled.section`
       display: flex;
       gap: 30px;
       overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      -ms-overflow-style: -ms-autohiding-scrollbar;
       padding-bottom: 40px;
 
       .payment {
@@ -87,6 +89,8 @@ export const StyledResult = styled.section`
         .payments-flow {
           margin: 20px 0px 24px 0px;
           overflow-y: auto;
+          -webkit-overflow-scrolling: touch;
+          -ms-overflow-style: -ms-autohiding-scrollbar;
           padding-right: 10px;
 
           li {

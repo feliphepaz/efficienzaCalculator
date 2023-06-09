@@ -79,7 +79,7 @@ export default function Step1({
   }, []);
 
   return (
-    <>
+    <div className="step">
       <p className="instruction">
         Primeiramente, adicione todas as taxas que a administradora possui e o
         que será repassado
@@ -136,6 +136,6 @@ export default function Step1({
           }}
         />
       </form>
-    </>
+    </div>
   );
 }

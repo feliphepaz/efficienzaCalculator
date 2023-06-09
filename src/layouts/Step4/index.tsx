@@ -34,7 +34,7 @@ export default function Step4({
   }, []);
 
   return (
-    <>
+    <div className="step">
       <p className="instruction">
         Por último, gostaríamos de saber mais sobre você! Preencha os dados com
         as suas informações
@@ -85,6 +85,6 @@ export default function Step4({
           <a href="#">política de privacidade</a>.
         </p>
       </div>
-    </>
+    </div>
   );
 }

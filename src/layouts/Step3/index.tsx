@@ -29,7 +29,7 @@ export default function Step3({
   }, []);
 
   return (
-    <>
+    <div className="step">
       <p className="instruction">
         Aqui você deve preencher os campos com todos os gastos referente a
         anúncios, serviços, etc
@@ -63,6 +63,6 @@ export default function Step3({
           onChange={({ target }) => setTelephone(+(target as any).rawValue)}
         />
       </form>
-    </>
+    </div>
   );
 }

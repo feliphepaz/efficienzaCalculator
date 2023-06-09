@@ -29,6 +29,10 @@
   gap: 30px 20px;
 }
 
+.tool .box .step {
+  animation: showStep 0.4s forwards;
+}
+
 .instruction {
   font-weight: 500;
   line-height: 150%;
@@ -109,6 +113,17 @@
   color: #000000;
   font-size: 14px;
   line-height: 120%;
+}
+
+@keyframes showStep {
+  0% {
+    opacity: 0;
+    transform: translate3d(-30px, 0px, 0px);
+  }
+  100% {
+    opacity: 1;
+    transform: translate3d(0px, 0px, 0px);
+  }
 }
 
 @keyframes showModal {

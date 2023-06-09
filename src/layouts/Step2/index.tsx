@@ -42,7 +42,7 @@ export default function Step2({
   }, []);
 
   return (
-    <>
+    <div className="step">
       <p className="instruction">
         Nos conte sobre a quantidade de funcionários que a sua equipe terá e
         outras informações
@@ -130,6 +130,6 @@ export default function Step2({
           }}
         />
       </form>
-    </>
+    </div>
   );
 }

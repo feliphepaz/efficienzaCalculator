@@ -22,7 +22,7 @@ export default function Result({
   });
 
   return (
-    <StyledResult>
+    <StyledResult className="step">
       <div className="head">
         <span>Custo total</span>
         <h2>{totals && formatter.format(totals.total)}</h2>
