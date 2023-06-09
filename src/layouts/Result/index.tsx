@@ -73,14 +73,23 @@ export default function Result({ payments, salary, totals }: ResultProps) {
       </div>
       <div className="resume">
         <p>
-          Ao final de <strong>6 meses</strong> mantendo a média de{" "}
-          <strong>{salary?.sales} vendas</strong>, a concessionária terá formado
-          uma carteira de{" "}
-          <strong>{salary && salary.sales * 6} consorciados</strong> e pelo
-          crédito médio de {salary && formatter.format(salary.average)} terá{" "}
+          Ao final de <strong>{payments[0].monthsOfPayment + 1} meses</strong>{" "}
+          mantendo a média de <strong>{salary?.sales} vendas</strong>, a
+          concessionária terá formado uma carteira de{" "}
+          <strong>
+            {salary && salary.sales * (payments[0].monthsOfPayment + 1)}{" "}
+            consorciados
+          </strong>{" "}
+          e pelo crédito médio de {salary && formatter.format(salary.average)}{" "}
+          terá{" "}
           <strong className="invoicing">
-            {salary && formatter.format(salary.sales * 6 * salary.average)} à
-            faturar
+            {salary &&
+              formatter.format(
+                salary.sales *
+                  (payments[0].monthsOfPayment + 1) *
+                  salary.average
+              )}{" "}
+            à faturar
           </strong>
           .
         </p>
