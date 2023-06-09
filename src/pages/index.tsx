@@ -127,7 +127,7 @@ export default function Home() {
               setVRValue={setVRValue}
             />
             <Breadcrumb
-              steps={["Taxas", "Equipe", "Verba", "Dados", "Resultado"]}
+              steps={["Taxas", "Equipe", "Verba", "Resultado"]}
               stepActive={step}
             />
             {step === 1 && (
@@ -184,7 +184,7 @@ export default function Home() {
                 setValidSteps={setValidSteps}
               />
             )}
-            {step === 4 && (
+            {/* {step === 4 && (
               <Step4
                 name={name}
                 setName={setName}
@@ -198,8 +198,8 @@ export default function Home() {
                 setNewsletterRegister={setNewsletterRegister}
                 setValidSteps={setValidSteps}
               />
-            )}
-            {step === 5 && (
+            )} */}
+            {step === 4 && (
               <Result payments={payments} salary={salary} totals={totals} />
             )}
             <nav
@@ -216,10 +216,10 @@ export default function Home() {
                   <span>Voltar</span>
                 </button>
               )}
-              {step !== 5 && (
+              {step !== 4 && (
                 <button className="next-step btn" onClick={nextStep}>
-                  <span>{step === 4 ? "Ver resultado" : "Avançar"}</span>
-                  {step !== 4 && <Arrow />}
+                  <span>{step === 3 ? "Ver resultado" : "Avançar"}</span>
+                  {step !== 3 && <Arrow />}
                 </button>
               )}
             </nav>
