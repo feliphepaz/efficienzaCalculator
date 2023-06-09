@@ -4,11 +4,14 @@ export interface Step1Props {
   payments: PaymentsProps[];
   monthsOfPayment: number;
   setMonthsOfPayment: (value: number) => void;
-  comissionRates: number[];
+  comissionRatesRaw: string[];
+  setComissionRatesRaw: (value: any) => void;
   setComissionRates: (value: any) => void;
-  taxRate: number;
+  taxRateRaw: string;
+  setTaxRateRaw: (value: string) => void;
   setTaxRate: (value: number) => void;
-  nonPayments: number[];
+  nonPaymentsRaw: string[];
+  setNonPaymentsRaw: (value: any) => void;
   setNonPayments: (value: any) => void;
   setValidSteps: (value: boolean[]) => void;
 }

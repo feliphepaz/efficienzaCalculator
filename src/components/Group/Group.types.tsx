@@ -4,6 +4,6 @@ export interface GroupProps extends InputHTMLAttributes<HTMLInputElement> {
   field: string;
   label: string;
   months: number;
-  data: number[];
+  data: string[];
   tooltip: string;
 }

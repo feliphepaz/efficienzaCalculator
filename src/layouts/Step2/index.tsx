@@ -6,11 +6,13 @@ export default function Step2({
   salary,
   numberOfSupervisors,
   setNumberOfSupervisors,
-  supervisorComission,
+  supervisorComissionRaw,
+  setSupervisorComissionRaw,
   setSupervisorComission,
   numberOfSellers,
   setNumberOfSellers,
-  sellerComission,
+  sellerComissionRaw,
+  setSellerComissionRaw,
   setSellerComission,
   sales,
   setSales,
@@ -18,7 +20,8 @@ export default function Step2({
   setAverage,
   numberOfDays,
   setNumberOfDays,
-  charges,
+  chargesRaw,
+  setChargesRaw,
   setCharges,
   setValidSteps,
 }: Step2Props) {
@@ -59,9 +62,11 @@ export default function Step2({
           type="percentage"
           tooltip="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum volutpat porttitor dolor, eu posuere ex vitae. Ut et erat tincidunt"
           placeholder="Digite a comissão"
-          onChange={({ target }) =>
-            setSupervisorComission(+target.value.replace(",", "."))
-          }
+          value={supervisorComissionRaw}
+          onChange={({ target }) => {
+            setSupervisorComission(+target.value.replace(",", "."));
+            setSupervisorComissionRaw(target.value);
+          }}
         />
         <Input
           field="number-of-sellers"
@@ -78,9 +83,11 @@ export default function Step2({
           type="percentage"
           tooltip="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum volutpat porttitor dolor, eu posuere ex vitae. Ut et erat tincidunt"
           placeholder="Digite a comissão"
-          onChange={({ target }) =>
-            setSellerComission(+target.value.replace(",", "."))
-          }
+          value={sellerComissionRaw}
+          onChange={({ target }) => {
+            setSellerComission(+target.value.replace(",", "."));
+            setSellerComissionRaw(target.value);
+          }}
         />
         <Input
           field="sales"
@@ -115,7 +122,11 @@ export default function Step2({
           type="percentage"
           tooltip="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum volutpat porttitor dolor, eu posuere ex vitae. Ut et erat tincidunt"
           placeholder="Digite a taxa"
-          onChange={({ target }) => setCharges(+target.value.replace(",", "."))}
+          value={chargesRaw}
+          onChange={({ target }) => {
+            setCharges(+target.value.replace(",", "."));
+            setChargesRaw(target.value);
+          }}
         />
       </form>
     </>

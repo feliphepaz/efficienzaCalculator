@@ -52,10 +52,8 @@ export default function Input({
             name={field}
             id={field}
             options={{
-              numericOnly: true,
-              delimiter: ",",
-              delimiterLazyShow: true,
-              blocks: [2, 2],
+              numeral: true,
+              numeralDecimalMark: ",",
             }}
             {...props}
           />

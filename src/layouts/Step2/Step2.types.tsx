@@ -4,11 +4,13 @@ export interface Step2Props {
   salary: SalaryProps | null;
   numberOfSupervisors: number;
   setNumberOfSupervisors: (value: number) => void;
-  supervisorComission: number;
+  supervisorComissionRaw: string;
+  setSupervisorComissionRaw: (value: string) => void;
   setSupervisorComission: (value: number) => void;
   numberOfSellers: number;
   setNumberOfSellers: (value: number) => void;
-  sellerComission: number;
+  sellerComissionRaw: string;
+  setSellerComissionRaw: (value: string) => void;
   setSellerComission: (value: number) => void;
   sales: number;
   setSales: (value: number) => void;
@@ -16,7 +18,8 @@ export interface Step2Props {
   setAverage: (value: number) => void;
   numberOfDays: number;
   setNumberOfDays: (value: number) => void;
-  charges: number;
+  chargesRaw: string;
+  setChargesRaw: (value: string) => void;
   setCharges: (value: number) => void;
   setValidSteps: (value: boolean[]) => void;
 }

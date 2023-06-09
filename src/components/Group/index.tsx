@@ -39,10 +39,8 @@ export default function Group({
                 name={`${field}-month-${index}`}
                 id={`${field}-month-${index}`}
                 options={{
-                  numericOnly: true,
-                  delimiter: ",",
-                  delimiterLazyShow: true,
-                  blocks: [2, 2],
+                  numeral: true,
+                  numeralDecimalMark: ",",
                 }}
                 data-index={index}
                 value={data[index]}

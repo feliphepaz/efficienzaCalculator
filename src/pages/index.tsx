@@ -20,24 +20,29 @@ export default function Home() {
     payments,
     monthsOfPayment,
     setMonthsOfPayment,
-    comissionRates,
+    comissionRatesRaw,
+    setComissionRatesRaw,
     setComissionRates,
-    taxRate,
+    taxRateRaw,
+    setTaxRateRaw,
     setTaxRate,
-    nonPayments,
+    nonPaymentsRaw,
+    setNonPaymentsRaw,
     setNonPayments,
     salary,
     numberOfSupervisors,
     setNumberOfSupervisors,
     supervisorSalary,
     setSupervisorSalary,
-    supervisorComission,
+    supervisorComissionRaw,
+    setSupervisorComissionRaw,
     setSupervisorComission,
     numberOfSellers,
     setNumberOfSellers,
     sellerSalary,
     setSellerSalary,
-    sellerComission,
+    sellerComissionRaw,
+    setSellerComissionRaw,
     setSellerComission,
     sales,
     setSales,
@@ -49,7 +54,8 @@ export default function Home() {
     setVTValue,
     VRValue,
     setVRValue,
-    charges,
+    chargesRaw,
+    setChargesRaw,
     setCharges,
     totals,
     media,
@@ -103,20 +109,6 @@ export default function Home() {
     }
   }
 
-  useEffect(() => {
-    const body = document.querySelector("body");
-    function proceedWithEnter(e: KeyboardEvent) {
-      if (e.keyCode === 13) {
-        nextStep();
-      }
-    }
-
-    body?.addEventListener("keydown", proceedWithEnter);
-    return () => {
-      body?.removeEventListener("keydown", proceedWithEnter);
-    };
-  }, [validSteps]);
-
   return (
     <>
       <Header />
@@ -143,11 +135,14 @@ export default function Home() {
                 payments={payments}
                 monthsOfPayment={monthsOfPayment}
                 setMonthsOfPayment={setMonthsOfPayment}
-                comissionRates={comissionRates}
+                comissionRatesRaw={comissionRatesRaw}
+                setComissionRatesRaw={setComissionRatesRaw}
                 setComissionRates={setComissionRates}
-                taxRate={taxRate}
+                taxRateRaw={taxRateRaw}
+                setTaxRateRaw={setTaxRateRaw}
                 setTaxRate={setTaxRate}
-                nonPayments={nonPayments}
+                nonPaymentsRaw={nonPaymentsRaw}
+                setNonPaymentsRaw={setNonPaymentsRaw}
                 setNonPayments={setNonPayments}
                 setValidSteps={setValidSteps}
               />
@@ -159,9 +154,11 @@ export default function Home() {
                 setNumberOfSupervisors={setNumberOfSupervisors}
                 numberOfSellers={numberOfSellers}
                 setNumberOfSellers={setNumberOfSellers}
-                supervisorComission={supervisorComission}
+                supervisorComissionRaw={supervisorComissionRaw}
+                setSupervisorComissionRaw={setSupervisorComissionRaw}
                 setSupervisorComission={setSupervisorComission}
-                sellerComission={sellerComission}
+                sellerComissionRaw={sellerComissionRaw}
+                setSellerComissionRaw={setSellerComissionRaw}
                 setSellerComission={setSellerComission}
                 sales={sales}
                 setSales={setSales}
@@ -169,7 +166,8 @@ export default function Home() {
                 setAverage={setAverage}
                 numberOfDays={numberOfDays}
                 setNumberOfDays={setNumberOfDays}
-                charges={charges}
+                chargesRaw={chargesRaw}
+                setChargesRaw={setChargesRaw}
                 setCharges={setCharges}
                 setValidSteps={setValidSteps}
               />
@@ -222,7 +220,6 @@ export default function Home() {
                 <button className="next-step btn" onClick={nextStep}>
                   <span>{step === 4 ? "Ver resultado" : "Avançar"}</span>
                   {step !== 4 && <Arrow />}
-                  <small>ou tecle enter</small>
                 </button>
               )}
             </nav>

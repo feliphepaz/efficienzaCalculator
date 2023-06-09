@@ -4,9 +4,12 @@ import { PaymentsProps, SalaryProps, TotalsProps } from "@/types/useData";
 export const useData = () => {
   // Payments
   const [payments, setPayments] = useState<PaymentsProps[]>([]);
-  const [monthsOfPayment, setMonthsOfPayment] = useState(1);
+  const [monthsOfPayment, setMonthsOfPayment] = useState(4);
+  const [comissionRatesRaw, setComissionRatesRaw] = useState([]);
   const [comissionRates, setComissionRates] = useState<number[]>([]);
+  const [taxRateRaw, setTaxRateRaw] = useState("");
   const [taxRate, setTaxRate] = useState<number | any>(null);
+  const [nonPaymentsRaw, setNonPaymentsRaw] = useState([]);
   const [nonPayments, setNonPayments] = useState<number[]>([]);
 
   // Salary
@@ -15,17 +18,20 @@ export const useData = () => {
     null
   );
   const [supervisorSalary, setSupervisorSalary] = useState(3000);
+  const [supervisorComissionRaw, setSupervisorComissionRaw] = useState("");
   const [supervisorComission, setSupervisorComission] = useState<number | any>(
     null
   );
   const [numberOfSellers, setNumberOfSellers] = useState<number | any>(null);
   const [sellerSalary, setSellerSalary] = useState(965);
+  const [sellerComissionRaw, setSellerComissionRaw] = useState("");
   const [sellerComission, setSellerComission] = useState<number | any>(null);
   const [sales, setSales] = useState<number | any>(null);
   const [average, setAverage] = useState<number | any>(null);
   const [numberOfDays, setNumberOfDays] = useState<number | any>(null);
   const [VTValue, setVTValue] = useState(6);
   const [VRValue, setVRValue] = useState(15);
+  const [chargesRaw, setChargesRaw] = useState("");
   const [charges, setCharges] = useState<number | any>(null);
 
   // Totals
@@ -181,24 +187,29 @@ export const useData = () => {
     payments,
     monthsOfPayment,
     setMonthsOfPayment,
-    comissionRates,
+    comissionRatesRaw,
+    setComissionRatesRaw,
     setComissionRates,
-    taxRate,
+    taxRateRaw,
+    setTaxRateRaw,
     setTaxRate,
-    nonPayments,
+    nonPaymentsRaw,
+    setNonPaymentsRaw,
     setNonPayments,
     salary,
     numberOfSupervisors,
     setNumberOfSupervisors,
     supervisorSalary,
     setSupervisorSalary,
-    supervisorComission,
+    supervisorComissionRaw,
+    setSupervisorComissionRaw,
     setSupervisorComission,
     numberOfSellers,
     setNumberOfSellers,
     sellerSalary,
     setSellerSalary,
-    sellerComission,
+    sellerComissionRaw,
+    setSellerComissionRaw,
     setSellerComission,
     sales,
     setSales,
@@ -210,7 +221,8 @@ export const useData = () => {
     setVTValue,
     VRValue,
     setVRValue,
-    charges,
+    chargesRaw,
+    setChargesRaw,
     setCharges,
     totals,
     media,

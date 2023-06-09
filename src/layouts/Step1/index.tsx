@@ -8,11 +8,14 @@ export default function Step1({
   payments,
   monthsOfPayment,
   setMonthsOfPayment,
-  comissionRates,
+  comissionRatesRaw,
+  setComissionRatesRaw,
   setComissionRates,
-  taxRate,
+  taxRateRaw,
+  setTaxRateRaw,
   setTaxRate,
-  nonPayments,
+  nonPaymentsRaw,
+  setNonPaymentsRaw,
   setNonPayments,
   setValidSteps,
 }: Step1Props) {
@@ -28,8 +31,31 @@ export default function Step1({
     });
   }
 
+  function setComissionRatesRawFields(
+    value: string,
+    index: string | undefined
+  ) {
+    setComissionRatesRaw((prevValues: string[]) => {
+      const newValues = [...prevValues];
+      if (index) {
+        newValues[+index] = value;
+      }
+      return newValues;
+    });
+  }
+
   function setNonPaymentsFields(value: number, index: string | undefined) {
     setNonPayments((prevValues: number[]) => {
+      const newValues = [...prevValues];
+      if (index) {
+        newValues[+index] = value;
+      }
+      return newValues;
+    });
+  }
+
+  function setNonPaymentsRawFields(value: string, index: string | undefined) {
+    setNonPaymentsRaw((prevValues: string[]) => {
       const newValues = [...prevValues];
       if (index) {
         newValues[+index] = value;
@@ -72,35 +98,41 @@ export default function Step1({
           type="percentage"
           tooltip="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum volutpat porttitor dolor, eu posuere ex vitae. Ut et erat tincidunt"
           placeholder="Digite a taxa"
-          onChange={({ target }) => setTaxRate(+target.value.replace(",", "."))}
+          value={taxRateRaw}
+          onChange={({ target }) => {
+            setTaxRate(+target.value.replace(",", "."));
+            setTaxRateRaw(target.value);
+          }}
         />
         <Group
           field="comission-rates"
           label="Taxas de comissão"
           months={monthsOfPayment}
           tooltip="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum volutpat porttitor dolor, eu posuere ex vitae. Ut et erat tincidunt"
-          data={comissionRates}
+          data={comissionRatesRaw}
           placeholder="Digite a taxa"
-          onChange={({ target }) =>
+          onChange={({ target }) => {
             setComissionRatesFields(
               +target.value.replace(",", "."),
               target.dataset.index
-            )
-          }
+            );
+            setComissionRatesRawFields(target.value, target.dataset.index);
+          }}
         />
         <Group
           field="non-payments"
           label="Taxas de inadimplência"
           months={monthsOfPayment}
           tooltip="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum volutpat porttitor dolor, eu posuere ex vitae. Ut et erat tincidunt"
-          data={nonPayments}
+          data={nonPaymentsRaw}
           placeholder="Digite a taxa"
-          onChange={({ target }) =>
+          onChange={({ target }) => {
             setNonPaymentsFields(
               +target.value.replace(",", "."),
               target.dataset.index
-            )
-          }
+            );
+            setNonPaymentsRawFields(target.value, target.dataset.index);
+          }}
         />
       </form>
     </>
