@@ -31,8 +31,8 @@ export default function Step3({
   return (
     <div className="step">
       <p className="instruction">
-        Aqui você deve preencher os campos com todos os gastos referente a
-        anúncios, serviços, etc
+        Adicione agora todas as informações solicitadas para prosseguirmos com a
+        análise
       </p>
       <form ref={step3}>
         <Input

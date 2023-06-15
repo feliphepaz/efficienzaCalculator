@@ -43,14 +43,11 @@ export default function Step2({
 
   return (
     <div className="step">
-      <p className="instruction">
-        Nos conte sobre a quantidade de funcionários que a sua equipe terá e
-        outras informações
-      </p>
+      <p className="instruction">Nos conte mais sobre a sua equipe</p>
       <form ref={step2}>
         <Input
           field="number-of-supervisors"
-          label="Serão quantos supervisores?"
+          label="Quantos supervisores?"
           type="quantity"
           tooltip="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum volutpat porttitor dolor, eu posuere ex vitae. Ut et erat tincidunt"
           placeholder="Digite a quantidade"
@@ -59,7 +56,7 @@ export default function Step2({
         />
         <Input
           field="supervisor-comission"
-          label="Qual será a comissão de um supervisor?"
+          label="Qual será a comissão do(s) supervisor(es)?"
           type="percentage"
           tooltip="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum volutpat porttitor dolor, eu posuere ex vitae. Ut et erat tincidunt"
           placeholder="Digite a comissão"
@@ -71,7 +68,7 @@ export default function Step2({
         />
         <Input
           field="number-of-sellers"
-          label="Serão quantos vendedores?"
+          label="Quantos vendedores?"
           type="quantity"
           tooltip="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum volutpat porttitor dolor, eu posuere ex vitae. Ut et erat tincidunt"
           placeholder="Digite a quantidade"
@@ -80,7 +77,7 @@ export default function Step2({
         />
         <Input
           field="seller-comission"
-          label="Qual será a comissão de um vendedor?"
+          label="Qual será a comissão do(s) vendedor(es)?"
           type="percentage"
           tooltip="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum volutpat porttitor dolor, eu posuere ex vitae. Ut et erat tincidunt"
           placeholder="Digite a comissão"
@@ -92,7 +89,7 @@ export default function Step2({
         />
         <Input
           field="sales"
-          label="Serão quantas vendas de cotas?"
+          label="Qual a previsão de venda em número de cotas?"
           type="quantity"
           tooltip="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum volutpat porttitor dolor, eu posuere ex vitae. Ut et erat tincidunt"
           placeholder="Digite a quantidade"
@@ -101,7 +98,7 @@ export default function Step2({
         />
         <Input
           field="average"
-          label="Qual será a média de crédito?"
+          label="Qual será o ticket médio de crédito?"
           type="currency"
           tooltip="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum volutpat porttitor dolor, eu posuere ex vitae. Ut et erat tincidunt"
           placeholder="Digite a média"

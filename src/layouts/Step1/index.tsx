@@ -87,7 +87,7 @@ export default function Step1({
       <form ref={step1}>
         <Select
           field="months-of-payment"
-          label="Serão quantos meses de pagamento?"
+          label="Você recebe a sua comissão fracionada em quantos meses?"
           options={[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]}
           tooltip="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum volutpat porttitor dolor, eu posuere ex vitae. Ut et erat tincidunt"
           value={monthsOfPayment}
@@ -95,7 +95,7 @@ export default function Step1({
         />
         <Input
           field="tax-rate"
-          label="Qual será a taxa de imposto?"
+          label="Qual é o percentual de imposto sobre a emissão de nota?"
           type="percentage"
           tooltip="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum volutpat porttitor dolor, eu posuere ex vitae. Ut et erat tincidunt"
           placeholder="Digite a taxa"
@@ -107,7 +107,7 @@ export default function Step1({
         />
         <Group
           field="comission-rates"
-          label="Taxas de comissão"
+          label="Percentual de comissão"
           months={monthsOfPayment}
           tooltip="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum volutpat porttitor dolor, eu posuere ex vitae. Ut et erat tincidunt"
           data={comissionRatesRaw}
@@ -122,7 +122,7 @@ export default function Step1({
         />
         <Group
           field="non-payments"
-          label="Taxas de inadimplência"
+          label="Previsão de inadimplência"
           months={monthsOfPayment}
           tooltip="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum volutpat porttitor dolor, eu posuere ex vitae. Ut et erat tincidunt"
           data={nonPaymentsRaw}
