@@ -4,6 +4,10 @@
   box-sizing: border-box;
 }
 
+body {
+  overflow-x: hidden;
+}
+
 .container {
   max-width: calc(1200px + 40px);
   margin: 0 auto;

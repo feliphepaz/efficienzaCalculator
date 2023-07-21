@@ -33,9 +33,6 @@ export default class MyDocument extends Document {
     return (
       <Html lang="pt-br">
         <Head>
-          <title>
-            Calculadora de gastos para monstar uma equipe de consórcio
-          </title>
           <meta
             name="description"
             content="Conheça agora a ferramenta que vai te ajudar a montar uma equipe!"

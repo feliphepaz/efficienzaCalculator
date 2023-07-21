@@ -1,3 +1,4 @@
+import Head from "next/head";
 import Breadcrumb from "@/components/Breadcrumb";
 import Step1 from "@/layouts/Step1";
 import Step2 from "@/layouts/Step2";
@@ -114,6 +115,11 @@ export default function Home() {
 
   return (
     <>
+      <Head>
+        <title>
+          Calculadora de gastos para monstar uma equipe de consórcio
+        </title>
+      </Head>
       <Header />
       <Hero />
       <main className="tool">
