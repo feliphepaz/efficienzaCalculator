@@ -33,7 +33,56 @@ export default class MyDocument extends Document {
     return (
       <Html lang="pt-br">
         <Head>
-          <link rel="shortcut icon" href="/favicon.ico" />
+          <title>
+            Calculadora de gastos para monstar uma equipe de consórcio
+          </title>
+          <meta
+            name="description"
+            content="Conheça agora a ferramenta que vai te ajudar a montar uma equipe!"
+          />
+          <meta
+            name="keywords"
+            content="calculadora de gastos para monstar uma equipe de consórcio, ferramenta de gastos para equipe, gerador de gastos para equipe de consórcio, como calcular os gastos de uma equipe de consórcio"
+          />
+          <meta name="author" content="Efficienza Consultoria" />
+          <meta name="language" content="pt-BR" />
+          <link
+            rel="canonical"
+            href="https://calculadora.efficienzaconsultoria.com"
+          />
+
+          <meta property="og:type" content="website" />
+          <meta
+            property="og:title"
+            content="Calculadora de gastos para monstar uma equipe de consórcio"
+          />
+          <meta
+            property="og:description"
+            content="Conheça agora a ferramenta que vai te ajudar a montar uma equipe!"
+          />
+          <meta
+            property="og:url"
+            content="https://calculadora.efficienzaconsultoria.com"
+          />
+          <meta
+            property="og:image"
+            content="https://efficienzaconsultoria.com/wp-content/themes/efficienza/og-image.jpg"
+          />
+
+          <meta name="twitter:card" content="summary" />
+          <meta
+            name="twitter:title"
+            content="Calculadora de gastos para monstar uma equipe de consórcio"
+          />
+          <meta
+            name="twitter:description"
+            content="Conheça agora a ferramenta que vai te ajudar a montar uma equipe!"
+          />
+
+          <link
+            rel="shortcut icon"
+            href="https://efficienzaconsultoria.com/wp-content/themes/efficienza/favicon.ico"
+          />
         </Head>
         <body>
           <Main />
