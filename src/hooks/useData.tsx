@@ -11,6 +11,7 @@ export const useData = () => {
   const [taxRate, setTaxRate] = useState<number | any>(null);
   const [nonPaymentsRaw, setNonPaymentsRaw] = useState([]);
   const [nonPayments, setNonPayments] = useState<number[]>([]);
+  const [disableIncrementedRate, setDisableIncrementedRate] = useState(false);
 
   // Salary
   const [salary, setSalary] = useState<SalaryProps | null>(null);
@@ -58,25 +59,33 @@ export const useData = () => {
     // Payments
     const payments: PaymentsProps[] = Array.from(
       { length: monthsOfPayment },
-      (item, index) => ({
-        monthsOfPayment,
-        comissionRate: comissionRates[index],
-        taxes: (sales * average * comissionRates[index]) / 100,
-        taxRate,
-        paymentWithTax:
-          (((sales * average * comissionRates[index]) / 100) * taxRate) / 100,
-        nonPayment: nonPayments[index],
-        lost:
-          (((sales * average * comissionRates[index]) / 100) *
-            nonPayments[index]) /
-          100,
-        liquid:
-          (sales * average * comissionRates[index]) / 100 -
-          (((sales * average * comissionRates[index]) / 100) * taxRate) / 100 -
-          (((sales * average * comissionRates[index]) / 100) *
-            nonPayments[index]) /
+      (item, index) => {
+        const newAverage = disableIncrementedRate
+          ? average
+          : average * Math.pow(1.1, index);
+        return {
+          monthsOfPayment,
+          comissionRate: comissionRates[index],
+          taxes: (sales * newAverage * comissionRates[index]) / 100,
+          taxRate,
+          paymentWithTax:
+            (((sales * newAverage * comissionRates[index]) / 100) * taxRate) /
             100,
-      })
+          nonPayment: nonPayments[index],
+          lost:
+            (((sales * newAverage * comissionRates[index]) / 100) *
+              nonPayments[index]) /
+            100,
+          liquid:
+            (sales * newAverage * comissionRates[index]) / 100 -
+            (((sales * newAverage * comissionRates[index]) / 100) * taxRate) /
+              100 -
+            (((sales * newAverage * comissionRates[index]) / 100) *
+              nonPayments[index]) /
+              100,
+          test: newAverage,
+        };
+      }
     );
     setPayments(payments);
 
@@ -177,6 +186,7 @@ export const useData = () => {
     comissionRates,
     taxRate,
     nonPayments,
+    disableIncrementedRate,
     numberOfSupervisors,
     supervisorSalary,
     supervisorComission,
@@ -207,6 +217,8 @@ export const useData = () => {
     nonPaymentsRaw,
     setNonPaymentsRaw,
     setNonPayments,
+    disableIncrementedRate,
+    setDisableIncrementedRate,
     salary,
     numberOfSupervisors,
     setNumberOfSupervisors,

@@ -1,4 +1,6 @@
 export interface SettingsProps {
+  disableIncrementedRate: boolean;
+  setDisableIncrementedRate: (value: boolean) => void;
   supervisorSalary: number;
   setSupervisorSalary: (value: number) => void;
   sellerSalary: number;

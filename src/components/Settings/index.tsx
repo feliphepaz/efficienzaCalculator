@@ -6,6 +6,8 @@ import Input from "../Input";
 import { SettingsProps } from "./Settings.types";
 
 export default function Settings({
+  disableIncrementedRate,
+  setDisableIncrementedRate,
   supervisorSalary,
   setSupervisorSalary,
   sellerSalary,
@@ -52,6 +54,18 @@ export default function Settings({
         {showSettings && <span>Fechar</span>}
       </button>
       <div className={showSettings ? "settings-list active" : "settings-list"}>
+        <div>
+          <div>
+            <p>Desativar taxa incrementada</p>
+            <Switch
+              switchClick={() =>
+                setDisableIncrementedRate(!disableIncrementedRate)
+              }
+              isChecked={disableIncrementedRate}
+            />
+          </div>
+        </div>
+        <hr />
         <div>
           <div>
             <p>Desativar salário automático de um supervisor</p>

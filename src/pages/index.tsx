@@ -3,7 +3,6 @@ import Step1 from "@/layouts/Step1";
 import Step2 from "@/layouts/Step2";
 import Step3 from "@/layouts/Step3";
 import Step4 from "@/layouts/Step4";
-import { useEffect, useState } from "react";
 import { useData } from "@/hooks/useData";
 import Result from "@/layouts/Result";
 import Header from "@/layouts/Header";
@@ -29,6 +28,8 @@ export default function Home() {
     nonPaymentsRaw,
     setNonPaymentsRaw,
     setNonPayments,
+    disableIncrementedRate,
+    setDisableIncrementedRate,
     salary,
     numberOfSupervisors,
     setNumberOfSupervisors,
@@ -119,6 +120,8 @@ export default function Home() {
         <div className="container">
           <div className="box">
             <Settings
+              disableIncrementedRate={disableIncrementedRate}
+              setDisableIncrementedRate={setDisableIncrementedRate}
               supervisorSalary={supervisorSalary}
               setSupervisorSalary={setSupervisorSalary}
               sellerSalary={sellerSalary}
