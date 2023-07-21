@@ -39,7 +39,7 @@ export default function Step3({
           field="media"
           label="Quanto será utilizado de verba para mídia?"
           type="currency"
-          tooltip="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum volutpat porttitor dolor, eu posuere ex vitae. Ut et erat tincidunt"
+          tooltip="Inclua também os valores gastos com publicidade, marketing digital e internet"
           placeholder="Digite o valor"
           value={media}
           onChange={({ target }) => setMedia(+(target as any).rawValue)}
@@ -48,7 +48,7 @@ export default function Step3({
           field="accountant"
           label="Quanto será pago para o contador?"
           type="currency"
-          tooltip="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum volutpat porttitor dolor, eu posuere ex vitae. Ut et erat tincidunt"
+          tooltip="Qual serão os gastos referente a contabilidade e toda a parte burocrática da sua empresa"
           placeholder="Digite o valor"
           value={accountant}
           onChange={({ target }) => setAccountant(+(target as any).rawValue)}
@@ -57,7 +57,7 @@ export default function Step3({
           field="telephone"
           label="Quanto será gasto de telefone?"
           type="currency"
-          tooltip="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum volutpat porttitor dolor, eu posuere ex vitae. Ut et erat tincidunt"
+          tooltip="O valor em média do custo de telefonemas feitos por supervisores e vendedores"
           placeholder="Digite o valor"
           value={telephone}
           onChange={({ target }) => setTelephone(+(target as any).rawValue)}

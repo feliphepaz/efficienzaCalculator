@@ -89,7 +89,7 @@ export default function Step1({
           field="months-of-payment"
           label="Você recebe a sua comissão fracionada em quantos meses?"
           options={[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]}
-          tooltip="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum volutpat porttitor dolor, eu posuere ex vitae. Ut et erat tincidunt"
+          tooltip="De acordo com a administradora que atua, em quantos meses são realizados os pagamentos"
           value={monthsOfPayment}
           onChange={({ target }) => setMonthsOfPayment(+target.value)}
         />
@@ -97,7 +97,7 @@ export default function Step1({
           field="tax-rate"
           label="Qual é o percentual de imposto sobre a emissão de nota?"
           type="percentage"
-          tooltip="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum volutpat porttitor dolor, eu posuere ex vitae. Ut et erat tincidunt"
+          tooltip="O percentual da nota que emite para efetuar o pagamento de comissão"
           placeholder="Digite a taxa"
           value={taxRateRaw}
           onChange={({ target }) => {
@@ -109,7 +109,7 @@ export default function Step1({
           field="comission-rates"
           label="Percentual de comissão"
           months={monthsOfPayment}
-          tooltip="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum volutpat porttitor dolor, eu posuere ex vitae. Ut et erat tincidunt"
+          tooltip="O percentual de comissão de cada mês"
           data={comissionRatesRaw}
           placeholder="Digite a taxa"
           onChange={({ target }) => {
@@ -124,7 +124,7 @@ export default function Step1({
           field="non-payments"
           label="Previsão de inadimplência"
           months={monthsOfPayment}
-          tooltip="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum volutpat porttitor dolor, eu posuere ex vitae. Ut et erat tincidunt"
+          tooltip="O percentual de estorno entre os meses caso haja cancelamento da cota"
           data={nonPaymentsRaw}
           placeholder="Digite a taxa"
           onChange={({ target }) => {

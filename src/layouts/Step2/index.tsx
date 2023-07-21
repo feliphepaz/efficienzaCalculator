@@ -49,7 +49,7 @@ export default function Step2({
           field="number-of-supervisors"
           label="Quantos supervisores?"
           type="quantity"
-          tooltip="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum volutpat porttitor dolor, eu posuere ex vitae. Ut et erat tincidunt"
+          tooltip="Quantos supervisores tem em sua empresa"
           placeholder="Digite a quantidade"
           value={numberOfSupervisors}
           onChange={({ target }) => setNumberOfSupervisors(+target.value)}
@@ -58,7 +58,7 @@ export default function Step2({
           field="supervisor-comission"
           label="Qual será a comissão do(s) supervisor(es)?"
           type="percentage"
-          tooltip="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum volutpat porttitor dolor, eu posuere ex vitae. Ut et erat tincidunt"
+          tooltip="Em cima do valor vendido, quanto será de comissão para cada supervisor"
           placeholder="Digite a comissão"
           value={supervisorComissionRaw}
           onChange={({ target }) => {
@@ -70,7 +70,7 @@ export default function Step2({
           field="number-of-sellers"
           label="Quantos vendedores?"
           type="quantity"
-          tooltip="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum volutpat porttitor dolor, eu posuere ex vitae. Ut et erat tincidunt"
+          tooltip="Quantos vendedores tem em sua empresa"
           placeholder="Digite a quantidade"
           value={numberOfSellers}
           onChange={({ target }) => setNumberOfSellers(+target.value)}
@@ -79,7 +79,7 @@ export default function Step2({
           field="seller-comission"
           label="Qual será a comissão do(s) vendedor(es)?"
           type="percentage"
-          tooltip="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum volutpat porttitor dolor, eu posuere ex vitae. Ut et erat tincidunt"
+          tooltip="Em cima do valor vendido, quanto será de comissão para cada vendedor"
           placeholder="Digite a comissão"
           value={sellerComissionRaw}
           onChange={({ target }) => {
@@ -91,7 +91,7 @@ export default function Step2({
           field="sales"
           label="Qual a previsão de venda em número de cotas?"
           type="quantity"
-          tooltip="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum volutpat porttitor dolor, eu posuere ex vitae. Ut et erat tincidunt"
+          tooltip="De acordo com sua meta mensal, ou se baseando nos meses anteriores, quantas cotas foram ou serão vendidas"
           placeholder="Digite a quantidade"
           value={sales}
           onChange={({ target }) => setSales(+target.value)}
@@ -100,7 +100,7 @@ export default function Step2({
           field="average"
           label="Qual será o ticket médio de crédito?"
           type="currency"
-          tooltip="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum volutpat porttitor dolor, eu posuere ex vitae. Ut et erat tincidunt"
+          tooltip="Qual a média de faturamento de acordo com os meses anteriores"
           placeholder="Digite a média"
           value={average}
           onChange={({ target }) => setAverage(+(target as any).rawValue)}
@@ -109,7 +109,7 @@ export default function Step2({
           field="number-of-days"
           label="Serão quantos dias trabalhados?"
           type="quantity"
-          tooltip="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum volutpat porttitor dolor, eu posuere ex vitae. Ut et erat tincidunt"
+          tooltip="Informe aqui quantos dias serão trabalhados por mês"
           placeholder="Digite a quantidade"
           value={numberOfDays}
           onChange={({ target }) => setNumberOfDays(+target.value)}
@@ -118,7 +118,7 @@ export default function Step2({
           field="charges"
           label="Qual será a taxa de encargos?"
           type="percentage"
-          tooltip="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum volutpat porttitor dolor, eu posuere ex vitae. Ut et erat tincidunt"
+          tooltip="Digite em média qual será a taxa de encargos calculados"
           placeholder="Digite a taxa"
           value={chargesRaw}
           onChange={({ target }) => {
