@@ -8,6 +8,7 @@ export default function Select({
   label,
   options,
   tooltip,
+  allowSelectOption,
   ...props
 }: SelectProps) {
   const [showTooltip, setShowTooltip] = useState(false);
@@ -31,6 +32,7 @@ export default function Select({
         )}
       </div>
       <select name={field} id={field} {...props}>
+        {allowSelectOption && <option value="">Selecione</option>}
         {options.map((option, index) => (
           <option key={index} value={option}>
             {option}

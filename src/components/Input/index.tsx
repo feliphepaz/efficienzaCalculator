@@ -75,7 +75,7 @@ export default function Input({
       )}
       {type === "text" && (
         <div className="input-wrapper">
-          <Cleave name={field} id={field} options={{}} {...props} />
+          <input name={field} id={field} {...props} />
         </div>
       )}
     </StyledInput>

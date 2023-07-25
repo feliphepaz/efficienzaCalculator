@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { StyledResult } from "./Result.styles";
 import { ResultProps } from "./Result.types";
 import PDF from "@/components/PDF";
+import axios from "axios";
 
 export default function Result({
   payments,
@@ -9,6 +10,13 @@ export default function Result({
   totals,
   totalWithNoSales,
   setTotalWithNoSales,
+  name,
+  email,
+  tel,
+  howMeet,
+  newsletterRegister,
+  emailSended,
+  setEmailSended,
 }: ResultProps) {
   const cumulativeValues = payments.map((value, index) =>
     payments
@@ -20,6 +28,30 @@ export default function Result({
     style: "currency",
     currency: "BRL",
   });
+
+  async function sendEmail() {
+    try {
+      const response = await axios.post(
+        "https://efficienza-calculator-backend.vercel.app/send-email",
+        {
+          name,
+          email,
+          tel,
+          howMeet,
+          newsletterRegister: newsletterRegister ? "Sim" : "Não",
+        }
+      );
+      setEmailSended(true);
+    } catch (err) {
+      setEmailSended(false);
+    }
+  }
+
+  useEffect(() => {
+    if (!emailSended) {
+      sendEmail();
+    }
+  }, [emailSended]);
 
   return (
     <StyledResult className="step">

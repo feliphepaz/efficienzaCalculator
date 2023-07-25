@@ -34,9 +34,9 @@ export default function Step2({
       const fieldsArray = fields ? Array.from(fields) : [];
       const emptyFields = fieldsArray.filter((field: any) => !field.value);
       if (emptyFields.length === 0) {
-        setValidSteps([true, true, false, false]);
+        setValidSteps([true, true, false, false, false]);
       } else {
-        setValidSteps([false, false, false, false]);
+        setValidSteps([false, false, false, false, false]);
       }
     });
   }, []);

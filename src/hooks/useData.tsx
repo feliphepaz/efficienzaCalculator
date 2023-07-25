@@ -50,10 +50,17 @@ export const useData = () => {
   const [tel, setTel] = useState("");
   const [howMeet, setHowMeet] = useState("");
   const [newsletterRegister, setNewsletterRegister] = useState(false);
+  const [emailSended, setEmailSended] = useState(false);
 
   // Steps
   const [step, setStep] = useState(1);
-  const [validSteps, setValidSteps] = useState([false, false, false, false]);
+  const [validSteps, setValidSteps] = useState([
+    false,
+    false,
+    false,
+    false,
+    false,
+  ]);
 
   useEffect(() => {
     // Payments
@@ -266,6 +273,8 @@ export const useData = () => {
     setHowMeet,
     newsletterRegister,
     setNewsletterRegister,
+    emailSended,
+    setEmailSended,
     step,
     setStep,
     validSteps,
