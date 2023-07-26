@@ -141,9 +141,7 @@ export default function Home() {
   return (
     <>
       <Head>
-        <title>
-          Calculadora de gastos para monstar uma equipe de consórcio
-        </title>
+        <title>Calculadora de custos de uma equipe de consórcio</title>
       </Head>
       {tutorial && <Tutorial />}
       <Header />
@@ -165,7 +163,7 @@ export default function Home() {
               tutorial={tutorial}
             />
             <Breadcrumb
-              steps={["Taxas", "Equipe", "Verba", "Dados", "Resultado"]}
+              steps={["Valores", "Equipe", "Verba", "Dados", "Resultado"]}
               stepActive={step}
             />
             {step === 1 && (

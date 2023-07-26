@@ -11,7 +11,7 @@ export default function Header() {
           width={153}
           height={38}
         />
-        <h1>Calculadora de gastos para monstar uma equipe de consórcio</h1>
+        <h1>Calculadora de custos de uma equipe de consórcio</h1>
       </div>
     </StyledHeader>
   );

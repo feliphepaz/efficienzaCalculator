@@ -64,7 +64,7 @@ export default function Settings({
       <div className={showSettings ? "settings-list active" : "settings-list"}>
         <div>
           <div>
-            <p>Desativar taxa incrementada</p>
+            <p>Desativar previsão de crescimento</p>
             <Switch
               switchClick={() =>
                 setDisableIncrementedRate(!disableIncrementedRate)

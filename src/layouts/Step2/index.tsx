@@ -130,10 +130,10 @@ export default function Step2({
         />
         <Input
           field="charges"
-          label="Qual será a taxa de encargos?"
+          label="Qual o percentual de encargos trabalhistas?"
           type="percentage"
-          tooltip="Digite em média qual será a taxa de encargos calculados"
-          placeholder="Digite a taxa"
+          tooltip="Digite em média a porcentagem dos encargos calculados"
+          placeholder="Digite o percentual"
           value={chargesRaw}
           onChange={({ target }) => {
             setCharges(+target.value.replace(",", "."));

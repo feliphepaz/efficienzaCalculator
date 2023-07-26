@@ -116,8 +116,8 @@ export default function Result({
       <div className="resume">
         <p>
           Ao final de <strong>{payments[0].monthsOfPayment + 1} meses</strong>{" "}
-          mantendo a média de <strong>{salary?.sales} vendas</strong>, a
-          concessionária terá formado uma carteira de{" "}
+          mantendo a média de <strong>{salary?.sales} vendas</strong>, o(a)
+          representante de consórcio terá formado uma carteira de{" "}
           <strong>
             {salary && salary.sales * (payments[0].monthsOfPayment + 1)}{" "}
             consorciados

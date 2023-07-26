@@ -94,10 +94,10 @@ export default function Step1({
         />
         <Input
           field="tax-rate"
-          label="Qual é o percentual de imposto sobre a emissão de nota?"
+          label="Qual o percentual de imposto sobre a emissão de nota?"
           type="percentage"
           tooltip="O percentual da nota que emite para efetuar o pagamento de comissão"
-          placeholder="Digite a taxa"
+          placeholder="Digite o percentual"
           value={taxRateRaw}
           onChange={({ target }) => {
             setTaxRate(+target.value.replace(",", "."));
@@ -110,7 +110,7 @@ export default function Step1({
           months={monthsOfPayment}
           tooltip="O percentual de comissão de cada mês"
           data={comissionRatesRaw}
-          placeholder="Digite a taxa"
+          placeholder="Digite o percentual"
           onChange={({ target }) => {
             setComissionRatesFields(
               +target.value.replace(",", "."),
@@ -125,7 +125,7 @@ export default function Step1({
           months={monthsOfPayment}
           tooltip="O percentual de estorno entre os meses caso haja cancelamento da cota"
           data={nonPaymentsRaw}
-          placeholder="Digite a taxa"
+          placeholder="Digite o percentual"
           onChange={({ target }) => {
             setNonPaymentsFields(
               +target.value.replace(",", "."),

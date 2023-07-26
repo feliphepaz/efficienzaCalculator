@@ -39,7 +39,7 @@ export default class MyDocument extends Document {
           />
           <meta
             name="keywords"
-            content="calculadora de gastos para monstar uma equipe de consórcio, ferramenta de gastos para equipe, gerador de gastos para equipe de consórcio, como calcular os gastos de uma equipe de consórcio"
+            content="calculadora de custos para monstar uma equipe de consórcio, ferramenta de custos para equipe, gerador de custos para equipe de consórcio, como calcular os custos de uma equipe de consórcio"
           />
           <meta name="author" content="Efficienza Consultoria" />
           <meta name="language" content="pt-BR" />
@@ -51,7 +51,7 @@ export default class MyDocument extends Document {
           <meta property="og:type" content="website" />
           <meta
             property="og:title"
-            content="Calculadora de gastos para monstar uma equipe de consórcio"
+            content="Calculadora de custos de uma equipe de consórcio"
           />
           <meta
             property="og:description"
@@ -69,7 +69,7 @@ export default class MyDocument extends Document {
           <meta name="twitter:card" content="summary" />
           <meta
             name="twitter:title"
-            content="Calculadora de gastos para monstar uma equipe de consórcio"
+            content="Calculadora de custos de uma equipe de consórcio"
           />
           <meta
             name="twitter:description"
