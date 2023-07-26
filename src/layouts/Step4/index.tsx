@@ -96,7 +96,13 @@ export default function Step4({
         <Select
           field="how-meet"
           label="Como conheceu a nossa ferramenta?"
-          options={["Exemplo", "Exemplo", "Exemplo"]}
+          options={[
+            "Pelo site da Efficienza Consultoria",
+            "Pelo Google",
+            "Por indicação",
+            "Através de anúncios e campanhas",
+            "Nenhuma das opções acima",
+          ]}
           allowSelectOption={true}
           value={howMeet}
           onChange={({ target }) => setHowMeet(target.value)}
@@ -112,7 +118,13 @@ export default function Step4({
       <div className="privacy">
         <p>
           Ao prosseguir você assume ter aceitado a nossa{" "}
-          <a href="#">política de privacidade</a>.
+          <a
+            href="https://efficienzaconsultoria.com/politica-de-privacidade.pdf"
+            target="_blank"
+          >
+            política de privacidade
+          </a>
+          .
         </p>
       </div>
     </div>
