@@ -7,13 +7,41 @@ export const StyledSettings = styled.div`
   position: relative;
   margin-bottom: 20px;
 
+  .tutorial-box {
+    position: absolute;
+    z-index: 9999;
+    top: -138px;
+    right: -60px;
+    max-width: 300px;
+    font-size: 14px;
+    background: #ffffff;
+    color: #000000;
+    font-weight: 500;
+    line-height: 150%;
+    padding: 10px 12px;
+    border-radius: 20px;
+    box-shadow: 0px 8px 20px rgba(34, 28, 53, 0.3);
+
+    &::after {
+      content: "";
+      position: absolute;
+      top: 100%;
+      left: 140px;
+      width: 0;
+      border-top: 5px solid #ffffff;
+      border-left: 5px solid transparent;
+      border-right: 5px solid transparent;
+    }
+  }
+
   .handle-button {
     display: flex;
+    z-index: 9999;
     align-items: center;
     width: max-content;
     padding: 6px 8px;
     font-family: "Poppins", Arial, Helvetica, sans-serif;
-    background: rgba(56, 182, 255, 0.2);
+    background: #dbf1ff;
     border: none;
     border-radius: 5px;
     font-size: 12px;

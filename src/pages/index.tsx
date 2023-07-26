@@ -14,6 +14,8 @@ import Arrow from "@/components/Arrow";
 import Settings from "@/components/Settings";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import Tutorial from "@/components/Tutorial";
+import { useEffect, useState } from "react";
 
 export default function Home() {
   const {
@@ -86,6 +88,8 @@ export default function Home() {
     setValidSteps,
   } = useData();
 
+  const [tutorial, setTutorial] = useState(false);
+
   function createError() {
     toast.error("Preencha todos os campos!", {
       position: "bottom-right",
@@ -115,6 +119,20 @@ export default function Home() {
     }
   }
 
+  useEffect(() => {
+    if (!localStorage.getItem("used-the-tool")) {
+      setTutorial(true);
+    }
+
+    document.addEventListener("click", (e) => {
+      const target = e.target as HTMLDivElement;
+      if (target.classList.contains("tutorial-blur")) {
+        setTutorial(false);
+        localStorage.setItem("used-the-tool", "true");
+      }
+    });
+  }, []);
+
   return (
     <>
       <Head>
@@ -122,6 +140,7 @@ export default function Home() {
           Calculadora de gastos para monstar uma equipe de consórcio
         </title>
       </Head>
+      {tutorial && <Tutorial />}
       <Header />
       <Hero />
       <main className="tool">
@@ -138,6 +157,7 @@ export default function Home() {
               setVTValue={setVTValue}
               VRValue={VRValue}
               setVRValue={setVRValue}
+              tutorial={tutorial}
             />
             <Breadcrumb
               steps={["Taxas", "Equipe", "Verba", "Dados", "Resultado"]}

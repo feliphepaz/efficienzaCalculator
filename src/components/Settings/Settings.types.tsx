@@ -9,4 +9,5 @@ export interface SettingsProps {
   setVTValue: (value: number) => void;
   VRValue: number;
   setVRValue: (value: number) => void;
+  tutorial: boolean;
 }

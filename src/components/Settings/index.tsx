@@ -16,6 +16,7 @@ export default function Settings({
   setVTValue,
   VRValue,
   setVRValue,
+  tutorial,
 }: SettingsProps) {
   const [showSettings, setShowSettings] = useState(false);
   const [disableSupervisorSalary, setDisableSupervisorSalary] = useState(false);
@@ -45,6 +46,13 @@ export default function Settings({
 
   return (
     <StyledSettings>
+      {tutorial && (
+        <div className="tutorial-box">
+          Bem vindo(a)! Você pode a qualquer momento alterar as configurações da
+          calculadora aqui, como definir o salário médio de um vendedor, entre
+          outros ajustes
+        </div>
+      )}
       <button
         onClick={() => setShowSettings(!showSettings)}
         className="handle-button"
