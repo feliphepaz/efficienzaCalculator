@@ -1,7 +1,4 @@
-import { SalaryProps } from "@/types/useData";
-
 export interface Step2Props {
-  salary: SalaryProps | null;
   numberOfSupervisors: number;
   setNumberOfSupervisors: (value: number) => void;
   supervisorComissionRaw: string;
@@ -16,6 +13,9 @@ export interface Step2Props {
   setSales: (value: number) => void;
   average: number;
   setAverage: (value: number) => void;
+  growthRaw: string;
+  setGrowthRaw: (value: string) => void;
+  setGrowth: (value: number) => void;
   numberOfDays: number;
   setNumberOfDays: (value: number) => void;
   chargesRaw: string;

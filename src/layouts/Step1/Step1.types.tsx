@@ -1,7 +1,4 @@
-import { PaymentsProps } from "@/types/useData";
-
 export interface Step1Props {
-  payments: PaymentsProps[];
   monthsOfPayment: number;
   setMonthsOfPayment: (value: number) => void;
   comissionRatesRaw: string[];

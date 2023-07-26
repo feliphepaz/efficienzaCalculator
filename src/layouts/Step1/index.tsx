@@ -5,7 +5,6 @@ import { useEffect, useRef } from "react";
 import { Step1Props } from "./Step1.types";
 
 export default function Step1({
-  payments,
   monthsOfPayment,
   setMonthsOfPayment,
   comissionRatesRaw,

@@ -29,6 +29,8 @@ export const useData = () => {
   const [sellerComission, setSellerComission] = useState<number | any>(null);
   const [sales, setSales] = useState<number | any>(null);
   const [average, setAverage] = useState<number | any>(null);
+  const [growthRaw, setGrowthRaw] = useState("");
+  const [growth, setGrowth] = useState<number | any>(null);
   const [numberOfDays, setNumberOfDays] = useState<number | any>(null);
   const [VTValue, setVTValue] = useState(6);
   const [VRValue, setVRValue] = useState(15);
@@ -39,6 +41,7 @@ export const useData = () => {
   const [media, setMedia] = useState<number | any>(null);
   const [accountant, setAccountant] = useState<number | any>(null);
   const [telephone, setTelephone] = useState<number | any>(null);
+  const [otherValues, setOtherValues] = useState<number | any>(null);
 
   // Totals
   const [totals, setTotals] = useState<TotalsProps | null>(null);
@@ -69,7 +72,7 @@ export const useData = () => {
       (item, index) => {
         const newAverage = disableIncrementedRate
           ? average
-          : average * Math.pow(1.1, index);
+          : average * Math.pow(1 + growth / 100, index);
         return {
           monthsOfPayment,
           comissionRate: comissionRates[index],
@@ -170,6 +173,7 @@ export const useData = () => {
       media,
       accountant,
       telephone,
+      otherValues,
       total:
         supervisorSalary * numberOfSupervisors +
         (sales * average * supervisorComission) / 100 +
@@ -185,7 +189,8 @@ export const useData = () => {
           VRValue * numberOfDays * (numberOfSupervisors + numberOfSellers)) +
         media +
         accountant +
-        telephone,
+        telephone +
+        otherValues,
     };
     setTotals(totals);
   }, [
@@ -202,6 +207,7 @@ export const useData = () => {
     sellerComission,
     sales,
     average,
+    growth,
     numberOfDays,
     VTValue,
     VRValue,
@@ -209,6 +215,7 @@ export const useData = () => {
     media,
     accountant,
     telephone,
+    otherValues,
   ]);
 
   return {
@@ -245,6 +252,9 @@ export const useData = () => {
     setSales,
     average,
     setAverage,
+    growthRaw,
+    setGrowthRaw,
+    setGrowth,
     numberOfDays,
     setNumberOfDays,
     VTValue,
@@ -263,6 +273,8 @@ export const useData = () => {
     setAccountant,
     telephone,
     setTelephone,
+    otherValues,
+    setOtherValues,
     name,
     setName,
     email,

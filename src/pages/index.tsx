@@ -52,6 +52,9 @@ export default function Home() {
     setSales,
     average,
     setAverage,
+    growthRaw,
+    setGrowthRaw,
+    setGrowth,
     numberOfDays,
     setNumberOfDays,
     VTValue,
@@ -70,6 +73,8 @@ export default function Home() {
     setAccountant,
     telephone,
     setTelephone,
+    otherValues,
+    setOtherValues,
     name,
     setName,
     email,
@@ -165,7 +170,6 @@ export default function Home() {
             />
             {step === 1 && (
               <Step1
-                payments={payments}
                 monthsOfPayment={monthsOfPayment}
                 setMonthsOfPayment={setMonthsOfPayment}
                 comissionRatesRaw={comissionRatesRaw}
@@ -182,7 +186,6 @@ export default function Home() {
             )}
             {step === 2 && (
               <Step2
-                salary={salary}
                 numberOfSupervisors={numberOfSupervisors}
                 setNumberOfSupervisors={setNumberOfSupervisors}
                 numberOfSellers={numberOfSellers}
@@ -197,6 +200,9 @@ export default function Home() {
                 setSales={setSales}
                 average={average}
                 setAverage={setAverage}
+                growthRaw={growthRaw}
+                setGrowthRaw={setGrowthRaw}
+                setGrowth={setGrowth}
                 numberOfDays={numberOfDays}
                 setNumberOfDays={setNumberOfDays}
                 chargesRaw={chargesRaw}
@@ -207,13 +213,14 @@ export default function Home() {
             )}
             {step === 3 && (
               <Step3
-                totals={totals}
                 media={media}
                 setMedia={setMedia}
                 accountant={accountant}
                 setAccountant={setAccountant}
                 telephone={telephone}
                 setTelephone={setTelephone}
+                otherValues={otherValues}
+                setOtherValues={setOtherValues}
                 setValidSteps={setValidSteps}
               />
             )}

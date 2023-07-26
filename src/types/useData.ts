@@ -51,5 +51,6 @@ export interface TotalsProps {
   media: number;
   accountant: number;
   telephone: number;
+  otherValues: number;
   total: number;
 }

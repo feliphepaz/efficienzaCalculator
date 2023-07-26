@@ -3,13 +3,14 @@ import { useEffect, useRef } from "react";
 import { Step3Props } from "./Step3.types";
 
 export default function Step3({
-  totals,
   media,
   setMedia,
   accountant,
   setAccountant,
   telephone,
   setTelephone,
+  otherValues,
+  setOtherValues,
   setValidSteps,
 }: Step3Props) {
   const step3 = useRef<HTMLFormElement>(null);
@@ -61,6 +62,15 @@ export default function Step3({
           placeholder="Digite o valor"
           value={telephone}
           onChange={({ target }) => setTelephone(+(target as any).rawValue)}
+        />
+        <Input
+          field="other-values"
+          label="Quais são os outros custos?"
+          type="currency"
+          tooltip="Informe aqui todos os custos restantes da operação, como viagens, etc"
+          placeholder="Digite o valor"
+          value={otherValues}
+          onChange={({ target }) => setOtherValues(+(target as any).rawValue)}
         />
       </form>
     </div>

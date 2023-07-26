@@ -3,7 +3,6 @@ import { useEffect, useRef } from "react";
 import { Step2Props } from "./Step2.types";
 
 export default function Step2({
-  salary,
   numberOfSupervisors,
   setNumberOfSupervisors,
   supervisorComissionRaw,
@@ -18,6 +17,9 @@ export default function Step2({
   setSales,
   average,
   setAverage,
+  growthRaw,
+  setGrowthRaw,
+  setGrowth,
   numberOfDays,
   setNumberOfDays,
   chargesRaw,
@@ -104,6 +106,18 @@ export default function Step2({
           placeholder="Digite a média"
           value={average}
           onChange={({ target }) => setAverage(+(target as any).rawValue)}
+        />
+        <Input
+          field="growth"
+          label="Quanto será a previsão de crescimento?"
+          type="percentage"
+          tooltip="Defina aqui quanto será acrescido a cada mês"
+          placeholder="Digite a previsão"
+          value={growthRaw}
+          onChange={({ target }) => {
+            setGrowth(+target.value.replace(",", "."));
+            setGrowthRaw(target.value);
+          }}
         />
         <Input
           field="number-of-days"
