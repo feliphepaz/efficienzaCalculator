@@ -67,6 +67,7 @@ export default function Home() {
     totals,
     totalWithNoSales,
     setTotalWithNoSales,
+    budget,
     media,
     setMedia,
     accountant,
@@ -184,6 +185,7 @@ export default function Home() {
             )}
             {step === 2 && (
               <Step2
+                monthsOfPayment={monthsOfPayment}
                 numberOfSupervisors={numberOfSupervisors}
                 setNumberOfSupervisors={setNumberOfSupervisors}
                 numberOfSellers={numberOfSellers}
@@ -241,6 +243,7 @@ export default function Home() {
               <Result
                 payments={payments}
                 salary={salary}
+                budget={budget}
                 totals={totals}
                 totalWithNoSales={totalWithNoSales}
                 setTotalWithNoSales={setTotalWithNoSales}

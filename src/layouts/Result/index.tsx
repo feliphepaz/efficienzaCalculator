@@ -7,6 +7,7 @@ import axios from "axios";
 export default function Result({
   payments,
   salary,
+  budget,
   totals,
   totalWithNoSales,
   setTotalWithNoSales,
@@ -18,6 +19,49 @@ export default function Result({
   emailSended,
   setEmailSended,
 }: ResultProps) {
+  function getTotal(index: number) {
+    if (salary && budget && totals) {
+      return (
+        salary.supervisor.supervisorSalary *
+          salary.supervisor.numberOfSupervisors +
+        (salary.sales *
+          salary.average *
+          salary.supervisor.supervisorComission[index]) /
+          100 +
+        salary.seller.sellerSalary * salary.seller.numberOfSellers +
+        (salary.sales * salary.average * salary.seller.sellerComission[index]) /
+          100 +
+        ((salary.supervisor.supervisorSalary *
+          salary.supervisor.numberOfSupervisors +
+          (salary.sales *
+            salary.average *
+            salary.supervisor.supervisorComission[index]) /
+            100 +
+          salary.seller.sellerSalary * salary.seller.numberOfSellers +
+          (salary.sales *
+            salary.average *
+            salary.seller.sellerComission[index]) /
+            100) *
+          salary.charges) /
+          100 +
+        (salary.benefits.VT.VTValue *
+          salary.benefits.numberOfDays *
+          (salary.supervisor.numberOfSupervisors +
+            salary.seller.numberOfSellers) +
+          salary.benefits.VR.VRValue *
+            salary.benefits.numberOfDays *
+            (salary.supervisor.numberOfSupervisors +
+              salary.seller.numberOfSellers)) +
+        budget.media +
+        budget.accountant +
+        budget.telephone +
+        budget.otherValues
+      );
+    } else {
+      return 0;
+    }
+  }
+
   const cumulativeValues = payments.map((value, index) =>
     payments
       .slice(0, index + 1)
@@ -96,7 +140,7 @@ export default function Result({
                 <li>
                   <span className="payment-label">Custo total</span>
                   <span className="payment-value">
-                    - {totals && formatter.format(totals.total)}
+                    - {formatter.format(getTotal(paymentIndex))}
                   </span>
                 </li>
               </ul>
@@ -105,7 +149,7 @@ export default function Result({
                 <span className="total-value">
                   {totals &&
                     formatter.format(
-                      cumulativeValues[paymentIndex] - totals.total
+                      cumulativeValues[paymentIndex] - getTotal(paymentIndex)
                     )}
                 </span>
               </div>

@@ -1,5 +1,10 @@
 import { useEffect, useState } from "react";
-import { PaymentsProps, SalaryProps, TotalsProps } from "@/types/useData";
+import {
+  PaymentsProps,
+  SalaryProps,
+  BudgetProps,
+  TotalsProps,
+} from "@/types/useData";
 
 export const useData = () => {
   // Payments
@@ -19,14 +24,12 @@ export const useData = () => {
     null
   );
   const [supervisorSalary, setSupervisorSalary] = useState(3000);
-  const [supervisorComissionRaw, setSupervisorComissionRaw] = useState("");
-  const [supervisorComission, setSupervisorComission] = useState<number | any>(
-    null
-  );
+  const [supervisorComissionRaw, setSupervisorComissionRaw] = useState([]);
+  const [supervisorComission, setSupervisorComission] = useState<number[]>([]);
   const [numberOfSellers, setNumberOfSellers] = useState<number | any>(null);
   const [sellerSalary, setSellerSalary] = useState(965);
-  const [sellerComissionRaw, setSellerComissionRaw] = useState("");
-  const [sellerComission, setSellerComission] = useState<number | any>(null);
+  const [sellerComissionRaw, setSellerComissionRaw] = useState([]);
+  const [sellerComission, setSellerComission] = useState<number[]>([]);
   const [sales, setSales] = useState<number | any>(null);
   const [average, setAverage] = useState<number | any>(null);
   const [growthRaw, setGrowthRaw] = useState("");
@@ -38,6 +41,7 @@ export const useData = () => {
   const [charges, setCharges] = useState<number | any>(null);
 
   // Budget
+  const [budget, setBudget] = useState<BudgetProps | null>(null);
   const [media, setMedia] = useState<number | any>(null);
   const [accountant, setAccountant] = useState<number | any>(null);
   const [telephone, setTelephone] = useState<number | any>(null);
@@ -107,14 +111,23 @@ export const useData = () => {
         supervisorComission,
         supervisorLiquidSalary: supervisorSalary * numberOfSupervisors,
         supervisorLiquidComission:
-          (sales * average * supervisorComission) / 100,
+          (sales *
+            average *
+            supervisorComission.reduce((acc, current) => acc + current, 0)) /
+          supervisorComission.length /
+          100,
       },
       seller: {
         numberOfSellers,
         sellerSalary,
         sellerComission,
         sellerLiquidSalary: sellerSalary * numberOfSellers,
-        sellerLiquidComission: (sales * average * sellerComission) / 100,
+        sellerLiquidComission:
+          (sales *
+            average *
+            sellerComission.reduce((acc, current) => acc + current, 0)) /
+          sellerComission.length /
+          100,
       },
       sales,
       average,
@@ -136,35 +149,84 @@ export const useData = () => {
     };
     setSalary(salary);
 
+    // Budget
+    const budget: BudgetProps = {
+      media,
+      accountant,
+      telephone,
+      otherValues,
+    };
+    setBudget(budget);
+
     // Totals
     const totals: TotalsProps = {
       supervisorTotalSalary:
         supervisorSalary * numberOfSupervisors +
-        (sales * average * supervisorComission) / 100,
+        (sales *
+          average *
+          supervisorComission.reduce((acc, current) => acc + current, 0)) /
+          supervisorComission.length /
+          100,
       sellerTotalSalary:
         sellerSalary * numberOfSellers +
-        (sales * average * sellerComission) / 100,
+        (sales *
+          average *
+          sellerComission.reduce((acc, current) => acc + current, 0)) /
+          sellerComission.length /
+          100,
       supAndSelTotalSalary:
         supervisorSalary * numberOfSupervisors +
-        (sales * average * supervisorComission) / 100 +
+        (sales *
+          average *
+          supervisorComission.reduce((acc, current) => acc + current, 0)) /
+          supervisorComission.length /
+          100 +
         sellerSalary * numberOfSellers +
-        (sales * average * sellerComission) / 100,
+        (sales *
+          average *
+          sellerComission.reduce((acc, current) => acc + current, 0)) /
+          sellerComission.length /
+          100,
       laborBenefits:
         ((supervisorSalary * numberOfSupervisors +
-          (sales * average * supervisorComission) / 100 +
+          (sales *
+            average *
+            supervisorComission.reduce((acc, current) => acc + current, 0)) /
+            supervisorComission.length /
+            100 +
           sellerSalary * numberOfSellers +
-          (sales * average * sellerComission) / 100) *
+          (sales *
+            average *
+            sellerComission.reduce((acc, current) => acc + current, 0)) /
+            sellerComission.length /
+            100) *
           charges) /
         100,
       salaryAndCharges:
         supervisorSalary * numberOfSupervisors +
-        (sales * average * supervisorComission) / 100 +
+        (sales *
+          average *
+          supervisorComission.reduce((acc, current) => acc + current, 0)) /
+          supervisorComission.length /
+          100 +
         sellerSalary * numberOfSellers +
-        (sales * average * sellerComission) / 100 +
+        (sales *
+          average *
+          sellerComission.reduce((acc, current) => acc + current, 0)) /
+          sellerComission.length /
+          100 +
         ((supervisorSalary * numberOfSupervisors +
-          (sales * average * supervisorComission) / 100 +
+          (sales *
+            average *
+            supervisorComission.reduce((acc, current) => acc + current, 0)) /
+            supervisorComission.length /
+            100 +
           sellerSalary * numberOfSellers +
-          (sales * average * sellerComission) / 100) *
+          (sales *
+            average *
+            sellerComission.reduce((acc, current) => acc + current, 0)) /
+            sellerComission.length /
+            100) *
           charges) /
           100,
       totalVTAndVR:
@@ -176,13 +238,29 @@ export const useData = () => {
       otherValues,
       total:
         supervisorSalary * numberOfSupervisors +
-        (sales * average * supervisorComission) / 100 +
+        (sales *
+          average *
+          supervisorComission.reduce((acc, current) => acc + current, 0)) /
+          supervisorComission.length /
+          100 +
         sellerSalary * numberOfSellers +
-        (sales * average * sellerComission) / 100 +
+        (sales *
+          average *
+          sellerComission.reduce((acc, current) => acc + current, 0)) /
+          sellerComission.length /
+          100 +
         ((supervisorSalary * numberOfSupervisors +
-          (sales * average * supervisorComission) / 100 +
+          (sales *
+            average *
+            supervisorComission.reduce((acc, current) => acc + current, 0)) /
+            supervisorComission.length /
+            100 +
           sellerSalary * numberOfSellers +
-          (sales * average * sellerComission) / 100) *
+          (sales *
+            average *
+            sellerComission.reduce((acc, current) => acc + current, 0)) /
+            sellerComission.length /
+            100) *
           charges) /
           100 +
         (VTValue * numberOfDays * (numberOfSupervisors + numberOfSellers) +
@@ -267,6 +345,7 @@ export const useData = () => {
     totals,
     totalWithNoSales,
     setTotalWithNoSales,
+    budget,
     media,
     setMedia,
     accountant,

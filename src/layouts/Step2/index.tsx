@@ -1,8 +1,10 @@
 import Input from "@/components/Input";
+import Group from "@/components/Group";
 import { useEffect, useRef } from "react";
 import { Step2Props } from "./Step2.types";
 
 export default function Step2({
+  monthsOfPayment,
   numberOfSupervisors,
   setNumberOfSupervisors,
   supervisorComissionRaw,
@@ -28,6 +30,55 @@ export default function Step2({
   setValidSteps,
 }: Step2Props) {
   const step2 = useRef<HTMLFormElement>(null);
+
+  function setSupervisorComissionFields(
+    value: number,
+    index: string | undefined
+  ) {
+    setSupervisorComission((prevValues: number[]) => {
+      const newValues = [...prevValues];
+      if (index) {
+        newValues[+index] = value;
+      }
+      return newValues;
+    });
+  }
+
+  function setSupervisorComissionRawFields(
+    value: string,
+    index: string | undefined
+  ) {
+    setSupervisorComissionRaw((prevValues: string[]) => {
+      const newValues = [...prevValues];
+      if (index) {
+        newValues[+index] = value;
+      }
+      return newValues;
+    });
+  }
+
+  function setSellerComissionFields(value: number, index: string | undefined) {
+    setSellerComission((prevValues: number[]) => {
+      const newValues = [...prevValues];
+      if (index) {
+        newValues[+index] = value;
+      }
+      return newValues;
+    });
+  }
+
+  function setSellerComissionRawFields(
+    value: string,
+    index: string | undefined
+  ) {
+    setSellerComissionRaw((prevValues: string[]) => {
+      const newValues = [...prevValues];
+      if (index) {
+        newValues[+index] = value;
+      }
+      return newValues;
+    });
+  }
 
   useEffect(() => {
     const fields = step2.current?.querySelectorAll("input");
@@ -57,18 +108,6 @@ export default function Step2({
           onChange={({ target }) => setNumberOfSupervisors(+target.value)}
         />
         <Input
-          field="supervisor-comission"
-          label="Qual será a comissão do(s) supervisor(es)?"
-          type="percentage"
-          tooltip="Em cima do valor vendido, quanto será de comissão para cada supervisor"
-          placeholder="Digite a comissão"
-          value={supervisorComissionRaw}
-          onChange={({ target }) => {
-            setSupervisorComission(+target.value.replace(",", "."));
-            setSupervisorComissionRaw(target.value);
-          }}
-        />
-        <Input
           field="number-of-sellers"
           label="Quantos vendedores?"
           type="quantity"
@@ -77,16 +116,34 @@ export default function Step2({
           value={numberOfSellers}
           onChange={({ target }) => setNumberOfSellers(+target.value)}
         />
-        <Input
-          field="seller-comission"
-          label="Qual será a comissão do(s) vendedor(es)?"
-          type="percentage"
-          tooltip="Em cima do valor vendido, quanto será de comissão para cada vendedor"
-          placeholder="Digite a comissão"
-          value={sellerComissionRaw}
+        <Group
+          field="supervisor-comission"
+          label="Comissão do(s) supervisor(es)"
+          months={monthsOfPayment}
+          tooltip="O percentual de comissão do(s) supervisor(es) de cada mês"
+          data={supervisorComissionRaw}
+          placeholder="Digite o percentual"
           onChange={({ target }) => {
-            setSellerComission(+target.value.replace(",", "."));
-            setSellerComissionRaw(target.value);
+            setSupervisorComissionFields(
+              +target.value.replace(",", "."),
+              target.dataset.index
+            );
+            setSupervisorComissionRawFields(target.value, target.dataset.index);
+          }}
+        />
+        <Group
+          field="seller-comission"
+          label="Comissão do(s) vendedor(es)"
+          months={monthsOfPayment}
+          tooltip="O percentual de comissão do(s) vendedor(es) de cada mês"
+          data={sellerComissionRaw}
+          placeholder="Digite o percentual"
+          onChange={({ target }) => {
+            setSellerComissionFields(
+              +target.value.replace(",", "."),
+              target.dataset.index
+            );
+            setSellerComissionRawFields(target.value, target.dataset.index);
           }}
         />
         <Input

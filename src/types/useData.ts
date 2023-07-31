@@ -13,14 +13,14 @@ export interface SalaryProps {
   supervisor: {
     numberOfSupervisors: number;
     supervisorSalary: number;
-    supervisorComission: number;
+    supervisorComission: number[];
     supervisorLiquidSalary: number;
     supervisorLiquidComission: number;
   };
   seller: {
     numberOfSellers: number;
     sellerSalary: number;
-    sellerComission: number;
+    sellerComission: number[];
     sellerLiquidSalary: number;
     sellerLiquidComission: number;
   };
@@ -39,6 +39,13 @@ export interface SalaryProps {
     };
   };
   charges: number;
+}
+
+export interface BudgetProps {
+  media: number;
+  accountant: number;
+  telephone: number;
+  otherValues: number;
 }
 
 export interface TotalsProps {
