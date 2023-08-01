@@ -74,30 +74,59 @@ export const useData = () => {
     const payments: PaymentsProps[] = Array.from(
       { length: monthsOfPayment },
       (item, index) => {
-        const newAverage = disableIncrementedRate
-          ? average
-          : average * Math.pow(1 + growth / 100, index);
         return {
           monthsOfPayment,
           comissionRate: comissionRates[index],
-          taxes: (sales * newAverage * comissionRates[index]) / 100,
+          taxes:
+            (sales *
+              (disableIncrementedRate
+                ? average
+                : average * (1 + growth / 100)) *
+              comissionRates[index]) /
+            100,
           taxRate,
           paymentWithTax:
-            (((sales * newAverage * comissionRates[index]) / 100) * taxRate) /
+            (((sales *
+              (disableIncrementedRate
+                ? average
+                : average * (1 + growth / 100)) *
+              comissionRates[index]) /
+              100) *
+              taxRate) /
             100,
           nonPayment: nonPayments[index],
           lost:
-            (((sales * newAverage * comissionRates[index]) / 100) *
+            (((sales *
+              (disableIncrementedRate
+                ? average
+                : average * (1 + growth / 100)) *
+              comissionRates[index]) /
+              100) *
               nonPayments[index]) /
             100,
           liquid:
-            (sales * newAverage * comissionRates[index]) / 100 -
-            (((sales * newAverage * comissionRates[index]) / 100) * taxRate) /
+            (sales *
+              (disableIncrementedRate
+                ? average
+                : average * (1 + growth / 100)) *
+              comissionRates[index]) /
               100 -
-            (((sales * newAverage * comissionRates[index]) / 100) *
+            (((sales *
+              (disableIncrementedRate
+                ? average
+                : average * (1 + growth / 100)) *
+              comissionRates[index]) /
+              100) *
+              taxRate) /
+              100 -
+            (((sales *
+              (disableIncrementedRate
+                ? average
+                : average * (1 + growth / 100)) *
+              comissionRates[index]) /
+              100) *
               nonPayments[index]) /
               100,
-          test: newAverage,
         };
       }
     );
@@ -112,7 +141,7 @@ export const useData = () => {
         supervisorLiquidSalary: supervisorSalary * numberOfSupervisors,
         supervisorLiquidComission:
           (sales *
-            average *
+            (disableIncrementedRate ? average : average * (1 + growth / 100)) *
             supervisorComission.reduce((acc, current) => acc + current, 0)) /
           supervisorComission.length /
           100,
@@ -124,14 +153,16 @@ export const useData = () => {
         sellerLiquidSalary: sellerSalary * numberOfSellers,
         sellerLiquidComission:
           (sales *
-            average *
+            (disableIncrementedRate ? average : average * (1 + growth / 100)) *
             sellerComission.reduce((acc, current) => acc + current, 0)) /
           sellerComission.length /
           100,
       },
       sales,
-      average,
-      invoicing: sales * average,
+      average: disableIncrementedRate ? average : average * (1 + growth / 100),
+      invoicing:
+        sales *
+        (disableIncrementedRate ? average : average * (1 + growth / 100)),
       benefits: {
         numberOfDays,
         VT: {
@@ -163,40 +194,40 @@ export const useData = () => {
       supervisorTotalSalary:
         supervisorSalary * numberOfSupervisors +
         (sales *
-          average *
+          (disableIncrementedRate ? average : average * (1 + growth / 100)) *
           supervisorComission.reduce((acc, current) => acc + current, 0)) /
           supervisorComission.length /
           100,
       sellerTotalSalary:
         sellerSalary * numberOfSellers +
         (sales *
-          average *
+          (disableIncrementedRate ? average : average * (1 + growth / 100)) *
           sellerComission.reduce((acc, current) => acc + current, 0)) /
           sellerComission.length /
           100,
       supAndSelTotalSalary:
         supervisorSalary * numberOfSupervisors +
         (sales *
-          average *
+          (disableIncrementedRate ? average : average * (1 + growth / 100)) *
           supervisorComission.reduce((acc, current) => acc + current, 0)) /
           supervisorComission.length /
           100 +
         sellerSalary * numberOfSellers +
         (sales *
-          average *
+          (disableIncrementedRate ? average : average * (1 + growth / 100)) *
           sellerComission.reduce((acc, current) => acc + current, 0)) /
           sellerComission.length /
           100,
       laborBenefits:
         ((supervisorSalary * numberOfSupervisors +
           (sales *
-            average *
+            (disableIncrementedRate ? average : average * (1 + growth / 100)) *
             supervisorComission.reduce((acc, current) => acc + current, 0)) /
             supervisorComission.length /
             100 +
           sellerSalary * numberOfSellers +
           (sales *
-            average *
+            (disableIncrementedRate ? average : average * (1 + growth / 100)) *
             sellerComission.reduce((acc, current) => acc + current, 0)) /
             sellerComission.length /
             100) *
@@ -205,25 +236,25 @@ export const useData = () => {
       salaryAndCharges:
         supervisorSalary * numberOfSupervisors +
         (sales *
-          average *
+          (disableIncrementedRate ? average : average * (1 + growth / 100)) *
           supervisorComission.reduce((acc, current) => acc + current, 0)) /
           supervisorComission.length /
           100 +
         sellerSalary * numberOfSellers +
         (sales *
-          average *
+          (disableIncrementedRate ? average : average * (1 + growth / 100)) *
           sellerComission.reduce((acc, current) => acc + current, 0)) /
           sellerComission.length /
           100 +
         ((supervisorSalary * numberOfSupervisors +
           (sales *
-            average *
+            (disableIncrementedRate ? average : average * (1 + growth / 100)) *
             supervisorComission.reduce((acc, current) => acc + current, 0)) /
             supervisorComission.length /
             100 +
           sellerSalary * numberOfSellers +
           (sales *
-            average *
+            (disableIncrementedRate ? average : average * (1 + growth / 100)) *
             sellerComission.reduce((acc, current) => acc + current, 0)) /
             sellerComission.length /
             100) *
@@ -239,25 +270,25 @@ export const useData = () => {
       total:
         supervisorSalary * numberOfSupervisors +
         (sales *
-          average *
+          (disableIncrementedRate ? average : average * (1 + growth / 100)) *
           supervisorComission.reduce((acc, current) => acc + current, 0)) /
           supervisorComission.length /
           100 +
         sellerSalary * numberOfSellers +
         (sales *
-          average *
+          (disableIncrementedRate ? average : average * (1 + growth / 100)) *
           sellerComission.reduce((acc, current) => acc + current, 0)) /
           sellerComission.length /
           100 +
         ((supervisorSalary * numberOfSupervisors +
           (sales *
-            average *
+            (disableIncrementedRate ? average : average * (1 + growth / 100)) *
             supervisorComission.reduce((acc, current) => acc + current, 0)) /
             supervisorComission.length /
             100 +
           sellerSalary * numberOfSellers +
           (sales *
-            average *
+            (disableIncrementedRate ? average : average * (1 + growth / 100)) *
             sellerComission.reduce((acc, current) => acc + current, 0)) /
             sellerComission.length /
             100) *

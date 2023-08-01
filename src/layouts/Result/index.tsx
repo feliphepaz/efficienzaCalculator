@@ -130,8 +130,7 @@ export default function Result({
                           {paymentIndex + 1 - installmentIndex}º mês de vendas
                         </span>
                         <span className="payment-value">
-                          +{" "}
-                          {formatter.format(payments[installmentIndex].liquid)}
+                          +{formatter.format(payments[installmentIndex].liquid)}
                         </span>
                       </li>
                     </>
@@ -140,7 +139,7 @@ export default function Result({
                 <li>
                   <span className="payment-label">Custo total</span>
                   <span className="payment-value">
-                    - {formatter.format(getTotal(paymentIndex))}
+                    -{formatter.format(getTotal(paymentIndex))}
                   </span>
                 </li>
               </ul>
