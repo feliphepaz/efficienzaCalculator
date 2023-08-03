@@ -199,12 +199,11 @@ export const useData = () => {
           supervisorComission.length /
           100,
       sellerTotalSalary:
-        sellerSalary * numberOfSellers +
         (sales *
           (disableIncrementedRate ? average : average * (1 + growth / 100)) *
           sellerComission.reduce((acc, current) => acc + current, 0)) /
-          sellerComission.length /
-          100,
+        sellerComission.length /
+        100,
       supAndSelTotalSalary:
         supervisorSalary * numberOfSupervisors +
         (sales *
@@ -212,7 +211,6 @@ export const useData = () => {
           supervisorComission.reduce((acc, current) => acc + current, 0)) /
           supervisorComission.length /
           100 +
-        sellerSalary * numberOfSellers +
         (sales *
           (disableIncrementedRate ? average : average * (1 + growth / 100)) *
           sellerComission.reduce((acc, current) => acc + current, 0)) /
@@ -225,7 +223,6 @@ export const useData = () => {
             supervisorComission.reduce((acc, current) => acc + current, 0)) /
             supervisorComission.length /
             100 +
-          sellerSalary * numberOfSellers +
           (sales *
             (disableIncrementedRate ? average : average * (1 + growth / 100)) *
             sellerComission.reduce((acc, current) => acc + current, 0)) /
@@ -240,7 +237,6 @@ export const useData = () => {
           supervisorComission.reduce((acc, current) => acc + current, 0)) /
           supervisorComission.length /
           100 +
-        sellerSalary * numberOfSellers +
         (sales *
           (disableIncrementedRate ? average : average * (1 + growth / 100)) *
           sellerComission.reduce((acc, current) => acc + current, 0)) /
@@ -252,7 +248,6 @@ export const useData = () => {
             supervisorComission.reduce((acc, current) => acc + current, 0)) /
             supervisorComission.length /
             100 +
-          sellerSalary * numberOfSellers +
           (sales *
             (disableIncrementedRate ? average : average * (1 + growth / 100)) *
             sellerComission.reduce((acc, current) => acc + current, 0)) /
@@ -274,7 +269,6 @@ export const useData = () => {
           supervisorComission.reduce((acc, current) => acc + current, 0)) /
           supervisorComission.length /
           100 +
-        sellerSalary * numberOfSellers +
         (sales *
           (disableIncrementedRate ? average : average * (1 + growth / 100)) *
           sellerComission.reduce((acc, current) => acc + current, 0)) /
@@ -286,7 +280,6 @@ export const useData = () => {
             supervisorComission.reduce((acc, current) => acc + current, 0)) /
             supervisorComission.length /
             100 +
-          sellerSalary * numberOfSellers +
           (sales *
             (disableIncrementedRate ? average : average * (1 + growth / 100)) *
             sellerComission.reduce((acc, current) => acc + current, 0)) /

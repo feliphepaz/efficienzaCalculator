@@ -28,7 +28,6 @@ export default function Result({
           salary.average *
           salary.supervisor.supervisorComission[index]) /
           100 +
-        salary.seller.sellerSalary * salary.seller.numberOfSellers +
         (salary.sales * salary.average * salary.seller.sellerComission[index]) /
           100 +
         ((salary.supervisor.supervisorSalary *
@@ -37,7 +36,6 @@ export default function Result({
             salary.average *
             salary.supervisor.supervisorComission[index]) /
             100 +
-          salary.seller.sellerSalary * salary.seller.numberOfSellers +
           (salary.sales *
             salary.average *
             salary.seller.sellerComission[index]) /
