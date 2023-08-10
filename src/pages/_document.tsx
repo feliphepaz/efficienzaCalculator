@@ -35,7 +35,7 @@ export default class MyDocument extends Document {
         <Head>
           <meta
             name="description"
-            content="Conheça agora a ferramenta que vai te ajudar a montar uma equipe!"
+            content="Conheça a ferramenta que vai te ajudar a desenvolver sua estrutura de consórcio!"
           />
           <meta
             name="keywords"
@@ -55,7 +55,7 @@ export default class MyDocument extends Document {
           />
           <meta
             property="og:description"
-            content="Conheça agora a ferramenta que vai te ajudar a montar uma equipe!"
+            content="Conheça a ferramenta que vai te ajudar a desenvolver sua estrutura de consórcio!"
           />
           <meta
             property="og:url"
@@ -73,7 +73,7 @@ export default class MyDocument extends Document {
           />
           <meta
             name="twitter:description"
-            content="Conheça agora a ferramenta que vai te ajudar a montar uma equipe!"
+            content="Conheça a ferramenta que vai te ajudar a desenvolver sua estrutura de consórcio!"
           />
 
           <link

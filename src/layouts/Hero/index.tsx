@@ -5,7 +5,8 @@ export default function Hero() {
     <StyledHero>
       <div className="container">
         <h2>
-          Conheça agora a ferramenta que vai te ajudar a montar uma equipe!
+          Conheça a ferramenta que vai te ajudar a desenvolver sua estrutura de
+          consórcio!
         </h2>
         <p>
           <strong>Responda as perguntas</strong> abaixo e te daremos o resultado

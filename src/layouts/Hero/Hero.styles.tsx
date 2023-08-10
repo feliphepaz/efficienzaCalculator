@@ -11,7 +11,7 @@ export const StyledHero = styled.section`
       font-weight: 700;
       font-size: 36px;
       line-height: 130%;
-      max-width: 387px;
+      max-width: 440px;
       margin-bottom: 20px;
     }
 
