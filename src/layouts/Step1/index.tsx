@@ -87,7 +87,7 @@ export default function Step1({
         <Select
           field="months-of-payment"
           label="Você recebe a sua comissão fracionada em quantos meses?"
-          options={[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]}
+          options={Array.from(Array(30).keys(), (x) => x + 1)}
           tooltip="De acordo com a administradora que atua, em quantos meses são realizados os pagamentos"
           value={monthsOfPayment}
           onChange={({ target }) => setMonthsOfPayment(+target.value)}
