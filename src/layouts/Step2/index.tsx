@@ -1,6 +1,6 @@
 import Input from "@/components/Input";
 import Group from "@/components/Group";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Step2Props } from "./Step2.types";
 
 export default function Step2({
@@ -30,6 +30,12 @@ export default function Step2({
   setValidSteps,
 }: Step2Props) {
   const step2 = useRef<HTMLFormElement>(null);
+  const [
+    supervisorComissionIndividualFill,
+    setSupervisorComissionIndividualFill,
+  ] = useState(false);
+  const [sellerComissionIndividualFill, setSellerComissionIndividualFill] =
+    useState(false);
 
   function setSupervisorComissionFields(
     value: number,
@@ -38,7 +44,15 @@ export default function Step2({
     setSupervisorComission((prevValues: number[]) => {
       const newValues = [...prevValues];
       if (index) {
-        newValues[+index] = value;
+        if (supervisorComissionIndividualFill) {
+          newValues[+index] = value;
+        } else {
+          Array.from({ length: monthsOfPayment }).forEach(
+            (monthEl, monthIndex) => {
+              newValues[monthIndex] = value;
+            }
+          );
+        }
       }
       return newValues;
     });
@@ -51,7 +65,15 @@ export default function Step2({
     setSupervisorComissionRaw((prevValues: string[]) => {
       const newValues = [...prevValues];
       if (index) {
-        newValues[+index] = value;
+        if (supervisorComissionIndividualFill) {
+          newValues[+index] = value;
+        } else {
+          Array.from({ length: monthsOfPayment }).forEach(
+            (monthEl, monthIndex) => {
+              newValues[monthIndex] = value;
+            }
+          );
+        }
       }
       return newValues;
     });
@@ -61,7 +83,15 @@ export default function Step2({
     setSellerComission((prevValues: number[]) => {
       const newValues = [...prevValues];
       if (index) {
-        newValues[+index] = value;
+        if (sellerComissionIndividualFill) {
+          newValues[+index] = value;
+        } else {
+          Array.from({ length: monthsOfPayment }).forEach(
+            (monthEl, monthIndex) => {
+              newValues[monthIndex] = value;
+            }
+          );
+        }
       }
       return newValues;
     });
@@ -74,7 +104,15 @@ export default function Step2({
     setSellerComissionRaw((prevValues: string[]) => {
       const newValues = [...prevValues];
       if (index) {
-        newValues[+index] = value;
+        if (sellerComissionIndividualFill) {
+          newValues[+index] = value;
+        } else {
+          Array.from({ length: monthsOfPayment }).forEach(
+            (monthEl, monthIndex) => {
+              newValues[monthIndex] = value;
+            }
+          );
+        }
       }
       return newValues;
     });
@@ -130,6 +168,7 @@ export default function Step2({
             );
             setSupervisorComissionRawFields(target.value, target.dataset.index);
           }}
+          onBlur={() => setSupervisorComissionIndividualFill(true)}
         />
         <Group
           field="seller-comission"
@@ -145,6 +184,7 @@ export default function Step2({
             );
             setSellerComissionRawFields(target.value, target.dataset.index);
           }}
+          onBlur={() => setSellerComissionIndividualFill(true)}
         />
         <Input
           field="sales"

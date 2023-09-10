@@ -1,7 +1,7 @@
 import Select from "@/components/Select";
 import Input from "@/components/Input";
 import Group from "@/components/Group";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Step1Props } from "./Step1.types";
 
 export default function Step1({
@@ -19,12 +19,24 @@ export default function Step1({
   setValidSteps,
 }: Step1Props) {
   const step1 = useRef<HTMLFormElement>(null);
+  const [comissionRatesIndividualFill, setComissionRatesIndividualFill] =
+    useState(false);
+  const [nonPaymentsIndividualFill, setNonPaymentsIndividualFill] =
+    useState(false);
 
   function setComissionRatesFields(value: number, index: string | undefined) {
     setComissionRates((prevValues: number[]) => {
       const newValues = [...prevValues];
       if (index) {
-        newValues[+index] = value;
+        if (comissionRatesIndividualFill) {
+          newValues[+index] = value;
+        } else {
+          Array.from({ length: monthsOfPayment }).forEach(
+            (monthEl, monthIndex) => {
+              newValues[monthIndex] = value;
+            }
+          );
+        }
       }
       return newValues;
     });
@@ -37,7 +49,15 @@ export default function Step1({
     setComissionRatesRaw((prevValues: string[]) => {
       const newValues = [...prevValues];
       if (index) {
-        newValues[+index] = value;
+        if (comissionRatesIndividualFill) {
+          newValues[+index] = value;
+        } else {
+          Array.from({ length: monthsOfPayment }).forEach(
+            (monthEl, monthIndex) => {
+              newValues[monthIndex] = value;
+            }
+          );
+        }
       }
       return newValues;
     });
@@ -47,7 +67,15 @@ export default function Step1({
     setNonPayments((prevValues: number[]) => {
       const newValues = [...prevValues];
       if (index) {
-        newValues[+index] = value;
+        if (nonPaymentsIndividualFill) {
+          newValues[+index] = value;
+        } else {
+          Array.from({ length: monthsOfPayment }).forEach(
+            (monthEl, monthIndex) => {
+              newValues[monthIndex] = value;
+            }
+          );
+        }
       }
       return newValues;
     });
@@ -57,7 +85,15 @@ export default function Step1({
     setNonPaymentsRaw((prevValues: string[]) => {
       const newValues = [...prevValues];
       if (index) {
-        newValues[+index] = value;
+        if (nonPaymentsIndividualFill) {
+          newValues[+index] = value;
+        } else {
+          Array.from({ length: monthsOfPayment }).forEach(
+            (monthEl, monthIndex) => {
+              newValues[monthIndex] = value;
+            }
+          );
+        }
       }
       return newValues;
     });
@@ -75,7 +111,7 @@ export default function Step1({
         setValidSteps([false, false, false, false, false]);
       }
     });
-  }, []);
+  }, [monthsOfPayment]);
 
   return (
     <div className="step">
@@ -118,6 +154,7 @@ export default function Step1({
             );
             setComissionRatesRawFields(target.value, target.dataset.index);
           }}
+          onBlur={() => setComissionRatesIndividualFill(true)}
         />
         <Group
           field="non-payments"
@@ -133,6 +170,7 @@ export default function Step1({
             );
             setNonPaymentsRawFields(target.value, target.dataset.index);
           }}
+          onBlur={() => setNonPaymentsIndividualFill(true)}
         />
       </form>
     </div>

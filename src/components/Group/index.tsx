@@ -41,6 +41,7 @@ export default function Group({
                 options={{
                   numeral: true,
                   numeralDecimalMark: ",",
+                  numeralDecimalScale: 8,
                 }}
                 data-index={index}
                 value={data[index]}

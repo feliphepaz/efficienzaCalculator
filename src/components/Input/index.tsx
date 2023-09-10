@@ -54,6 +54,7 @@ export default function Input({
             options={{
               numeral: true,
               numeralDecimalMark: ",",
+              numeralDecimalScale: 8,
             }}
             {...props}
           />
