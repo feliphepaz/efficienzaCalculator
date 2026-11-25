@@ -1,38 +1,105 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Efficienza Calculator
 
-## Getting Started
+Uma calculadora web criada para estimar os custos de uma equipe de consórcio e apresentar o resultado de forma clara em PDF.
 
-First, run the development server:
+**Aplicação:** [efficienza-calculator.vercel.app](https://efficienza-calculator.vercel.app)
+
+## Sobre o projeto
+
+O Efficienza Calculator guia o usuário por cinco etapas para dimensionar os custos operacionais de uma equipe de vendas:
+
+1. **Valores** — período de pagamento, comissões, impostos e inadimplência.
+2. **Equipe** — supervisores, vendedores, salários, comissões e parâmetros de vendas.
+3. **Verba** — custos com mídia, contabilidade, telefone e outros gastos.
+4. **Dados** — identificação e informações de contato do usuário.
+5. **Resultado** — resumo dos cálculos e opções para gerar um relatório em PDF.
+
+Os dados são processados no navegador e atualizados em tempo real por meio do hook `useData`.
+
+## Funcionalidades
+
+- Cálculo de comissões por período;
+- Cálculo de salários, encargos e benefícios;
+- Configuração de valores de vale-transporte e vale-refeição;
+- Estimativa de custos administrativos e operacionais;
+- Navegação guiada por etapas;
+- Tutorial inicial para novos usuários;
+- Exportação do resultado em PDF;
+- Interface responsiva;
+- Notificações para campos não preenchidos ou inválidos.
+
+## Tecnologias
+
+- [Next.js](https://nextjs.org/) 13;
+- [React](https://react.dev/) 18;
+- [TypeScript](https://www.typescriptlang.org/);
+- [Styled Components](https://styled-components.com/);
+- [Axios](https://axios-http.com/);
+- [PDF-LIB](https://pdf-lib.js.org/);
+- [React Toastify](https://fkhadra.github.io/react-toastify/).
+
+## Pré-requisitos
+
+- Node.js 18 ou superior;
+- npm, Yarn ou pnpm.
+
+## Instalação e execução
+
+Clone o repositório:
+
+```bash
+git clone https://github.com/feliphepaz/efficienzaCalculator.git
+cd efficienzaCalculator
+```
+
+Instale as dependências:
+
+```bash
+npm install
+```
+
+Inicie o servidor de desenvolvimento:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Acesse `http://localhost:3000` no navegador.
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+## Scripts disponíveis
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+| Comando | Descrição |
+| --- | --- |
+| `npm run dev` | Inicia o servidor de desenvolvimento |
+| `npm run build` | Gera a versão de produção e realiza a exportação estática |
+| `npm run start` | Inicia a aplicação em modo de produção |
+| `npm run lint` | Executa o lint do projeto |
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+## Estrutura do projeto
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+```text
+src/
+├── components/   # Componentes reutilizáveis
+├── hooks/        # Estado e regras de cálculo
+├── layouts/      # Seções e etapas da interface
+├── pages/        # Páginas e rotas do Next.js
+├── styles/       # Estilos globais
+└── types/        # Tipos TypeScript
+public/           # Imagens, ícones e demais arquivos estáticos
+```
 
-## Learn More
+## Build de produção
 
-To learn more about Next.js, take a look at the following resources:
+```bash
+npm run build
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Os arquivos da aplicação exportada são gerados pelo Next.js conforme a configuração definida em `next.config.js`.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+## Implantação
 
-## Deploy on Vercel
+O projeto está preparado para implantação na Vercel. Para outros provedores, execute `npm run build` e siga as instruções de hospedagem para aplicações Next.js.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Licença
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+Este projeto não possui uma licença definida até o momento.
